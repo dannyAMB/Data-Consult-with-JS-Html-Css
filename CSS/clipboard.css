@@ -1,0 +1,60 @@
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css";
+
+
+
+.copy-text {
+  position:relative;
+  padding:5px;
+  background:#fff;
+  border:1px solid #ddd;
+ width: 100%;
+  display:flex;
+}
+.copy-text input.text {
+  padding:10px;
+  font-size:18px;
+  color:#555;
+  border:none;
+  outline:none;
+  padding-right:10px;
+  width:100%;
+}
+.copy-text button {
+  padding:5px;
+  background:#ffffff;
+  color:#000000;
+  font-size:18px;
+  border:none;
+  outline:none;
+  border-radius:10px;
+  cursor:pointer;
+}
+.copy-text button:active {
+  background:#c2c2c2;
+}
+.copy-text button:before {
+  content:"Copied";
+  position:absolute;
+  top:-45px;
+  right:0px;
+  background:#5c81dc;
+  padding:8px 10px;
+  border-radius:20px;
+  font-size:15px;
+  display:none;
+}
+.copy-text button:after {
+  content:"";
+  position:absolute;
+  top:-20px;
+  right:25px;
+  width:10px;
+  height:10px;
+  background:#5c81dc;
+  transform:rotate(45deg);
+  display:none;
+}
+.copy-text.active button:before,
+.copy-text.active button:after {
+  display:block;
+}

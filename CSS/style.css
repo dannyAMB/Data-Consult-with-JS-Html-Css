@@ -1,0 +1,1178 @@
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css";
+@import url("https://fonts.googleapis.com/css2?family=Lobster&display=swap");
+ /* 
+::-webkit-scrollbar{
+
+  width: 0;
+  height: 0;
+}*/
+:root{
+  --color-text-titulos: #ffffff;
+  --color-texto: rgba(255, 255, 255, 0.867);
+  --color-acento: #E6E4C6;
+  --color-fondo: #752c0a !important;
+  --color-fondo-tarjeta: #ffffff27;
+}
+
+
+body{
+ 
+  /* margin: 0; */
+  background-image: url('../img/login.jpg');
+  background-color: #202a3c;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  background-size : cover;
+
+  color: var(--color-texto);
+  font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.header_content{
+
+  width: 100%;
+  position: fixed;
+}
+
+/* botones login */
+.content-login{
+
+  width: 100%;
+  display: flex;
+  justify-content: right;
+ 
+}
+
+.content-login-api_botom{
+  display: flex;
+  margin: 4px;
+
+  }
+  /* fin botones login */
+
+main{
+
+ width: 95%;
+}
+.logo_content{
+  position: relative;
+ margin-top: 50px;
+  display: flex;
+  width: 100%;
+  align-items: center;
+  justify-content: center;
+ height: 200px;
+}
+
+
+.input-table{
+
+
+
+  border: none;
+
+
+}
+
+.input-user
+{
+
+
+  width: 250px;
+ 
+
+
+}
+.form_content{
+
+width: 450px;
+display: flex;
+align-items: center;
+flex-wrap: wrap;
+align-items: center;
+justify-content: center;
+height: 180px;
+margin: auto;
+}
+.search_content{
+
+  width: 450px;
+  display: flex;
+  align-items: center;
+   flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+}
+#search_label{
+
+ 
+  width: 450px;
+}
+
+/* CheckBox estilos*/
+.check_content{
+
+  margin: 20px;
+
+  width: 300px;
+
+}
+.checkbox-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 450px;
+  margin: 5px;
+}
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 25px;
+  margin:  0 2px 0 15px;
+}
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  transition: .4s;
+  border-radius: 25px;
+}
+.slider:before {
+  position: absolute;
+  content: "";
+  height: 18px;
+  width: 18px;
+  left: 4px;
+  bottom: 3.5px;
+  background-color: white;
+  transition: .4s;
+  border-radius: 50%;
+}
+input:checked + .slider {
+  background-color: #007bff;
+}
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+/* fin CheckBox estilos*/
+#text_value{
+
+  background-image: url('../img/searchicon.png');
+  background-size: 34px;
+  background-position: 10px 10px;
+  background-repeat: no-repeat;
+  padding-left: 60px;
+  border-radius: 30px;
+  padding-right: 20px;
+  padding-bottom: 14px;
+  padding-top: 14px;
+  font-size: 20px;
+  width: 450px;
+
+}
+
+
+
+h2,h3,h4,h5,h6{
+  color: var(--color-text-titulos);
+  margin: 0px;
+}
+
+button{
+  background-color: var(--color-acento);
+  padding: 20px;
+  font-weight: bold ;
+  border-radius: 20px !important;
+  border: unset;
+  cursor: pointer;
+}
+
+
+/*clipboad - inicio*/
+
+
+
+.content-button-generate{
+display: flex;
+
+}
+
+.content_input_clipboard{
+
+  display:flex;
+ justify-content: center;
+ text-align: center;
+}
+.copy-text {
+  position:relative;
+  padding:5px;
+  background:#fff;
+  border:1px solid #ddd;
+ width: 100%;
+ 
+  display:flex;
+
+}
+.copy-text input.text {
+  padding:10px;
+  font-size:18px;
+  color:#555;
+  border:none;
+  outline:none;
+  padding-right:10px;
+  width:100%;
+}
+.copy-text button {
+  width: auto;
+  height: auto;
+  padding:5px;
+  background:#ffffff;
+  color:#000000;
+  font-size:18px;
+  border:none;
+  outline:none;
+  border-radius:10px;
+  cursor:pointer;
+}
+.copy-text button:active {
+  background:#c2c2c2;
+}
+.copy-text button:before {
+  content:"Copied";
+  position:absolute;
+  top:-45px;
+  right:0px;
+  background:#5c81dc;
+  padding:8px 10px;
+  border-radius:20px;
+  font-size:15px;
+  display:none;
+}
+.copy-text button:after {
+  content:"";
+  position:absolute;
+  top:-20px;
+  right:25px;
+  width:10px;
+  height:10px;
+  background:#5c81dc;
+  transform:rotate(45deg);
+  display:none;
+}
+.copy-text.active button:before,
+.copy-text.active button:after {
+  display:block;
+}
+
+
+#content_table_body{
+
+  transition-property: all !important;
+  transition-duration: 1s;
+
+}
+.fila-alum{
+  
+  transition-property: all !important;
+  transition-duration: 1s;
+}
+
+/*clipboad - fin*/  
+
+
+@keyframes aparecer {
+  0% {
+    opacity: 0;          /* Comienza invisible */
+    transform: translateY(20px); /* Se desplaza un poco hacia abajo */
+  }
+  100% {
+    opacity: 1;          /* Termina visible */
+    transform: translateY(0); /* Vuelve a su posición original */
+  }
+}
+.animation_aparecer {
+  animation-name: aparecer;
+  animation-duration: 1s; /* Duración de la animación */
+  animation-timing-function: ease; /* Tipo de transición */
+  animation-fill-mode: forwards; /* Mantiene el estado final */
+}
+      /* Mantiene el estado final */
+
+
+      /*animate-bak-glow*/
+
+ 
+      
+    
+      
+     /* body {
+     
+        
+      
+        
+        background-color: #1d212b;
+      }*/
+      
+      .animation_box_title{
+        position: relative;
+        width: 350px;
+        height: 120px;
+        line-height: 110px;
+        text-align: center;
+        color: #252B37;
+        background-color: #1d00256d;
+        animation: textColor 10s ease infinite;
+        border-radius: 100px;
+        font-size: 35px;
+        font-weight: bold;
+      }
+      .animation_box_title:after {
+        position: absolute;
+        content: "";
+        top: 5vw;
+        left: 0;
+        right: 0;
+        z-index: -1;
+        height: 80px;
+        width: 100%;
+        margin: 0 auto;
+        transform: scale(1.0);
+        -webkit-filter: blur(4vw);
+        -moz-filter: blur(4vw);
+        -ms-filter: blur(4vw);
+        filter: blur(4vw);
+        background: linear-gradient(90deg, #064ab8,#4d17ff, #f31111 );
+        background-size: 200% 200%;
+        animation: animateGlow 10s ease infinite;
+      }
+      @keyframes animateGlow {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+      @keyframes textColor {
+        0% { color: #4513ce;
+         
+        }
+
+        30%{
+         
+          color: #870505;
+
+        }
+        50% { 
+          color: #ff2828;
+       
+        
+        }
+70%{
+  color: #1542e7;
+
+}
+
+        100% {
+          color: #11618b;
+        }
+        
+      }
+
+      
+      @media (max-width: 1000px) {
+        .animation_box_title{
+          position: relative;
+          width:  340px;
+          height: 115px;
+          line-height: 100px;
+          text-align: center;
+          color: #080f1d;
+          animation: textColor 10s ease infinite;
+          font-size: 33px;
+        }
+      }
+      @media (max-width: 800px) {
+        .animation_box_title{
+          position: relative;
+          width:  330px;
+          height: 110px;
+          line-height: 100px;
+          text-align: center;
+          color: #252B37;
+          animation: textColor 10s ease infinite;
+          font-size: 30px;
+        }
+      }
+      @media (max-width: 700px) {
+        .animation_box_title{
+          position: relative;
+          width:  320px;
+          height: 105px;
+          line-height: 100px;
+          text-align: center;
+          color: #252B37;
+          animation: textColor 10s ease infinite;
+          font-size: 30px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .animation_box_title{
+          position: relative;
+          width: 310px;
+          height: 100px;
+          line-height: 100px;
+          text-align: center;
+          color: #252B37;
+          animation: textColor 10s ease infinite;
+          font-size: 30px;
+        }
+      }
+
+      @media (max-width: 550px) {
+        .animation_box_title{
+          position: relative;
+          width:  300px;
+          height: 100px;
+          line-height: 100px;
+          text-align: center;
+          color: #252B37;
+          animation: textColor 10s ease infinite;
+          font-size: 30px;
+
+        }
+      }
+
+      @media (max-width: 500px) {
+        .animation_box_title{
+          position: relative;
+          width:  300px;
+          height: 100px;
+          line-height:100px;
+          text-align: center;
+          color: #252B37;
+          animation: textColor 10s ease infinite;
+          font-size: 28px;
+        }
+      }
+
+
+/* boton chispas*/
+
+@import url("https://fonts.googleapis.com/css?family=Montserrat:400, 600");
+
+.v-align {
+  text-align: center;
+ 
+
+  max-height: 90vh;
+
+  -moz-transform: translateY(0%);
+  -ms-transform: translateY(0%);
+  -webkit-transform: translateY(0%);
+  transform: translateY(0%);
+}
+
+.hero-btn {
+ 
+  width: 200px;
+  height: 66px;
+}
+.hero-btn .btn {
+  background-color: #ff0083;
+  border: none;
+  outline: none;
+  text-decoration: none;
+  text-transform: uppercase;
+  color: #fff;
+
+  width: 200px;
+  height: 66px;
+  text-align: center;
+  line-height: 50px;
+  font-size: 14px;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 600;
+  letter-spacing: 2px;
+  -moz-border-radius: 2px;
+  -webkit-border-radius: 2px;
+  border-radius: 2px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -moz-user-select: -moz-none;
+  -ms-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+
+  cursor: pointer;
+
+  -moz-box-shadow: 0 15px 40px rgba(255, 0, 131, 0.5);
+  -webkit-box-shadow: 0 15px 40px rgba(255, 0, 131, 0.5);
+  box-shadow: 0 15px 40px rgba(255, 0, 131, 0.5);
+  -moz-transform: perspective(600px) rotateX(0deg) scale(1);
+  -ms-transform: perspective(600px) rotateX(0deg) scale(1);
+  -webkit-transform: perspective(600px) rotateX(0deg) scale(1);
+  transform: perspective(600px) rotateX(0deg) scale(1);
+  -moz-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  -webkit-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+.hero-btn .btn:hover {
+  background-color: #e60076;
+  -moz-box-shadow: 0 20px 40px rgba(255, 0, 131, 0.5);
+  -webkit-box-shadow: 0 20px 40px rgba(255, 0, 131, 0.5);
+  box-shadow: 0 20px 40px rgba(255, 0, 131, 0.5);
+}
+.hero-btn .btn:active {
+  -moz-transform: perspective(600px) rotateX(15deg) scale(0.9);
+  -ms-transform: perspective(600px) rotateX(15deg) scale(0.9);
+  -webkit-transform: perspective(600px) rotateX(15deg) scale(0.9);
+  transform: perspective(600px) rotateX(15deg) scale(0.9);
+  font-size: 14px;
+  -moz-box-shadow: 0 20px 40px rgba(255, 0, 131, 0.5);
+  -webkit-box-shadow: 0 20px 40px rgba(255, 0, 131, 0.5);
+  box-shadow: 0 20px 40px rgba(255, 0, 131, 0.5);
+}
+.active .hero-btn .btn:active {
+  -moz-transform: perspective(600px) rotateX(0deg) scale(1);
+  -ms-transform: perspective(600px) rotateX(0deg) scale(1);
+  -webkit-transform: perspective(600px) rotateX(0deg) scale(1);
+  transform: perspective(600px) rotateX(0deg) scale(1);
+  font-size: 14px;
+
+  -moz-box-shadow: 0 15px 40px rgba(255, 0, 131, 0.5);
+  -webkit-box-shadow: 0 15px 40px rgba(255, 0, 131, 0.5);
+  box-shadow: 0 15px 40px rgba(255, 0, 131, 0.5);
+}
+.hero-btn .particles-circle {
+  position: absolute;
+  background-color: #ff0083;
+  width: 30px;
+  height: 30px;
+  top: 10px;
+  left: 50%;
+  margin-left: -15px;
+  z-index: -1;
+  -moz-border-radius: 50%;
+  -webkit-border-radius: 50%;
+  border-radius: 50%;
+  -moz-transform: scale(0);
+  -ms-transform: scale(0);
+  -webkit-transform: scale(0);
+  transform: scale(0);
+  visibility: hidden;
+}
+.hero-btn .particles-circle:nth-of-type(odd) {
+  border: solid 2px #ff0083;
+  background-color: transparent;
+}
+@keyframes particles-1 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: 22px;
+    top: -50px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(1) {
+  animation: particles-1 1.5s 0.025s;
+}
+@keyframes particles-2 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: 244px;
+    top: 126px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(2) {
+  animation: particles-2 1.5s 0.05s;
+}
+@keyframes particles-3 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: -148px;
+    top: -244px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(3) {
+  animation: particles-3 1.5s 0.075s;
+}
+@keyframes particles-4 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: -31px;
+    top: -89px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(4) {
+  animation: particles-4 1.5s 0.1s;
+}
+@keyframes particles-5 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: -175px;
+    top: 154px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(5) {
+  animation: particles-5 1.5s 0.125s;
+}
+@keyframes particles-6 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: 202px;
+    top: 226px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(6) {
+  animation: particles-6 1.5s 0.15s;
+}
+@keyframes particles-7 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: -153px;
+    top: -243px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(7) {
+  animation: particles-7 1.5s 0.175s;
+}
+@keyframes particles-8 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: -236px;
+    top: -22px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(8) {
+  animation: particles-8 1.5s 0.2s;
+}
+@keyframes particles-9 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: -84px;
+    top: 249px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(9) {
+  animation: particles-9 1.5s 0.225s;
+}
+@keyframes particles-10 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: -80px;
+    top: -181px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(10) {
+  animation: particles-10 1.5s 0.25s;
+}
+@keyframes particles-11 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: 80px;
+    top: -238px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(11) {
+  animation: particles-11 1.5s 0.275s;
+}
+@keyframes particles-12 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: 50px;
+    top: -138px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(12) {
+  animation: particles-12 1.5s 0.3s;
+}
+@keyframes particles-13 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: -30px;
+    top: 48px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(13) {
+  animation: particles-13 1.5s 0.325s;
+}
+@keyframes particles-14 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: 79px;
+    top: -53px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(14) {
+  animation: particles-14 1.5s 0.35s;
+}
+@keyframes particles-15 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: -8px;
+    top: -121px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(15) {
+  animation: particles-15 1.5s 0.375s;
+}
+@keyframes particles-16 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: 49px;
+    top: -213px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(16) {
+  animation: particles-16 1.5s 0.4s;
+}
+@keyframes particles-17 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: -218px;
+    top: -214px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(17) {
+  animation: particles-17 1.5s 0.425s;
+}
+@keyframes particles-18 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: 163px;
+    top: 59px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(18) {
+  animation: particles-18 1.5s 0.45s;
+}
+@keyframes particles-19 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: 80px;
+    top: -246px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(19) {
+  animation: particles-19 1.5s 0.475s;
+}
+@keyframes particles-20 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: -224px;
+    top: 78px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(20) {
+  animation: particles-20 1.5s 0.5s;
+}
+@keyframes particles-21 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: -238px;
+    top: 131px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(21) {
+  animation: particles-21 1.5s 0.525s;
+}
+@keyframes particles-22 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: 73px;
+    top: 216px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(22) {
+  animation: particles-22 1.5s 0.55s;
+}
+@keyframes particles-23 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: 24px;
+    top: -93px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(23) {
+  animation: particles-23 1.5s 0.575s;
+}
+@keyframes particles-24 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: -90px;
+    top: -117px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(24) {
+  animation: particles-24 1.5s 0.6s;
+}
+@keyframes particles-25 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: 125px;
+    top: -37px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(25) {
+  animation: particles-25 1.5s 0.625s;
+}
+@keyframes particles-26 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: -216px;
+    top: -178px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(26) {
+  animation: particles-26 1.5s 0.65s;
+}
+@keyframes particles-27 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: 181px;
+    top: 29px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(27) {
+  animation: particles-27 1.5s 0.675s;
+}
+@keyframes particles-28 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: 182px;
+    top: -70px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(28) {
+  animation: particles-28 1.5s 0.7s;
+}
+@keyframes particles-29 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: -9px;
+    top: -235px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(29) {
+  animation: particles-29 1.5s 0.725s;
+}
+@keyframes particles-30 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: 191px;
+    top: -15px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(30) {
+  animation: particles-30 1.5s 0.75s;
+}
+@keyframes particles-31 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: 216px;
+    top: 116px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(31) {
+  animation: particles-31 1.5s 0.775s;
+}
+@keyframes particles-32 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: -147px;
+    top: -196px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(32) {
+  animation: particles-32 1.5s 0.8s;
+}
+@keyframes particles-33 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: -121px;
+    top: -115px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(33) {
+  animation: particles-33 1.5s 0.825s;
+}
+@keyframes particles-34 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: -6px;
+    top: -1px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(34) {
+  animation: particles-34 1.5s 0.85s;
+}
+@keyframes particles-35 {
+  from {
+    transform: scale(1);
+    visibility: visible;
+  }
+  to {
+    left: 34px;
+    top: -75px;
+    transform: scale(0);
+    visibility: hidden;
+  }
+}
+.active .hero-btn .particles-circle:nth-of-type(35) {
+  animation: particles-35 1.5s 0.875s;
+}
+
+
+.wrap__sparks {
+  transform: translateZ(-100px);
+}
+
+
+/* Navidad efecto - Nieve*/
+
+
+
+.boby-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  justify-content: space-between;
+}
+
+pre {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #00ff0a;
+}
+
+pre span:first-child {
+  color: rgb(255, 255, 0);
+}
+
+pre span:last-child {
+  color: #795548;
+}
+
+.snow {
+  background-color: #fff;
+  border-radius: 50%;
+  position: absolute;
+  top: -100px;
+}
+
+.snow-floor {
+  width: 100%;
+  height: 3%;
+  background-color: #fff;
+  position: absolute;
+  bottom: 0;
+  border-radius: 50% 50% 0 0;
+}
+
+.title {
+  color: #fff;
+  font-family: "Lobster";
+  font-weight: lighter;
+}
+
+@keyframes fall {
+  0% {
+    top: -100px;
+  }
+
+  100% {
+    top: 100vh;
+  }
+}
