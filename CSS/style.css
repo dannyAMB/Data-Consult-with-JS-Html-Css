@@ -292,7 +292,11 @@ display: flex;
 }
 
 /*clipboad - fin*/  
+.table{
 
+
+margin-bottom: 6px;
+}
 
 @keyframes aparecer {
   0% {
