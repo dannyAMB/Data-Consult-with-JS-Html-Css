@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Data consultant</title>
+  <meta charset="utf-8" /> 
+  <link rel="stylesheet" href="CSS/bootstrap.min.css">
+ <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />-->
+ <link rel="stylesheet" href="CSS/style.css">
+ <link rel="stylesheet" href="CSS/clipboard.css">
+
+</head>
+
+<body class="boby-container">
+
+  <!--Add buttons to initiate auth sequence and sign out-->
+
+
+
+  <header class="header_content">
+
+    <div class="content-login">
+
+
+      <div class="content-login-api_botom">
+        <button id="authorize_button" class="btn btn-outline-danger" >Get data</button>
+        <button id="signout_button"   class="btn btn-outline-danger"   >Sign-off</button>
+      </div>
+    </div>
+  
+   
+</header>
+
+<main style="margin: 10px;">
+  <div class="row justify-content-center">
+
+    <div class="col-12">
+  <div class="logo_content">
+
+  <div class="animation_box_title">
+    Data consultant
+    
+    </div>
+  </div>
+</div>
+</div>
+    <div class="row justify-content-center">
+
+        <div class="col-12">
+            <div class="mb-6">
+
+
+
+
+
+
+
+                <form class="form_content" >
+                  <div class="search_content"> 
+                    <label id="search_label" data-label="200">Buscar:</label>
+                    <input type="text" class="form-control" name="" id="text_value"  >
+                    <button type="submit" disabled hidden aria-hidden="true"></button>
+                  </div>
+                    
+               <!--    <div class="check_content"> 
+
+                      
+                     <input type="radio" id="academica_check" name="data" > 
+                     <label for="Academica">Academica</label> 
+
+                    <input type="radio" id="extension_check" name="data"> 
+                    <label for="Extension">Extensión</label>
+
+                    <input type="radio" id="profesores_check" name="data"> 
+                    <label for="Profesores">Profesores</label>
+                   
+                  </div>-->
+                  <div class="checkbox-container">
+                    <label class="switch">
+                        <input type="radio" id="academica_check" name="data">
+                        <span class="slider"></span>
+                        
+                    </label>
+                    <label for="Academica"><strong>Academica</strong> </label> 
+
+                    <label class="switch">
+                      <input type="radio" id="extension_check" name="data">
+                      <span class="slider"></span>
+                      
+                  </label>
+                  <label for="Extension"><strong>Extensión</strong></label>
+
+                  <label class="switch">
+                    <input type="radio" id="profesores_check" name="data">
+                    <span class="slider"></span>
+                    
+                  </label>
+                  <label for="Profesores"><strong>Profesores</strong></label>
+
+                </div>
+                <div class="checkbox-container-advanced-options">
+                  <label class="switch">
+                      <input type="checkbox" id="name_check" name="data_name">
+                      <span class="slider"></span>
+                      
+                  </label>
+                  <label for="Academica"><strong>Buscar por nombre</strong> </label> 
+
+              </div>
+                </form>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-12">
+
+
+
+            <div class="table-responsive">
+                <table class="table table-hover table-bordered" >
+                    <thead class="table-dark">
+                        <tr id="header_academica" >
+                 
+                            <th scope="col" style="background-color: brown;">#</th>
+                            <th scope="col">Fecha</th>
+                            <th scope="col">Programa</th>
+                            <th scope="col">Nombre Full</th>
+                            <th scope="col">Documento</th>
+                            <th scope="col">Correo/Usuario Academica</th>
+                            <th scope="col">Clave</th>
+                            <th scope="col">CorreoPersonal</th>
+                            <th scope="col">Tanda</th>
+
+                        </tr>
+                        <tr id="header_extension" >
+                 
+                          <th scope="col" style="background-color: brown;">#</th>
+                          <th scope="col">Fecha</th>
+                          <th scope="col">Programa</th>
+                          
+                          <th scope="col">Documento</th>
+                          <th scope="col">Nombre Full</th>
+                          <th scope="col">Correo/Usuario Extensión</th>
+                          <th scope="col">Clave</th>
+                          <th scope="col">CorreoPersonal</th>
+                          
+
+                      </tr>
+                      <tr id="header_profesores" >
+                 
+                        <th scope="col" style="background-color: brown;">#</th>
+                        <th scope="col">Fecha</th>
+                        <th scope="col">Tipo</th>
+                        <th scope="col">Documento</th>
+                        <th scope="col">Nombre Full</th>
+                        <th scope="col">Correo/Usuario Profesor</th>
+                        <th scope="col">Clave</th>
+                        <th scope="col">CorreoPersonal</th>
+                        <th scope="col">merge_status</th>
+
+                    </tr>
+                    </thead>
+                    <tbody id="content_table_body" ></tbody>
+                </table>
+                </div>
+   </div> 
+
+
+            <br>
+<div id="text-dom"> 
+   </div>
+
+
+  </div>
+  <div class="d-flex justify-content-end">
+    <nav aria-label="Page navigation example">
+      <ul class="pagination">
+        <li class="page-item">
+          <button class="page-link" onclick="previusPage()">
+            <span aria-hidden="true">&laquo;</span>
+          </button>
+        </li>
+
+        <div id="items" class="d-flex"></div>
+
+        <li class="page-item">
+          <button class="page-link" onclick="nextPage()">
+            <span aria-hidden="true">&raquo;</span>
+          </button>
+        </li>
+      </ul>
+    </nav>
+  </div>
+  <!--generador clave - inicio-->
+  <div class="content-button-generate">
+    <div class='v-align'>
+      <div class='hero-btn'>
+        <button class='btn' id="generator-button">
+          Generar clave
+
+        </button>
+    <!--     <span class='particles-circle'></span>
+        <span class='particles-circle'></span>
+        <span class='particles-circle'></span>
+        <span class='particles-circle'></span>
+        <span class='particles-circle'></span>
+        <span class='particles-circle'></span>
+        <span class='particles-circle'></span>
+        <span class='particles-circle'></span>
+        <span class='particles-circle'></span>
+        <span class='particles-circle'></span>
+        <span class='particles-circle'></span>
+        <span class='particles-circle'></span>
+        <span class='particles-circle'></span>
+        <span class='particles-circle'></span>
+        <span class='particles-circle'></span>
+        <span class='particles-circle'></span>
+        <span class='particles-circle'></span>
+        <span class='particles-circle'></span>
+        <span class='particles-circle'></span>
+        <span class='particles-circle'></span>
+        <span class='particles-circle'></span>
+        <span class='particles-circle'></span>
+        <span class='particles-circle'></span>
+        <span class='particles-circle'></span>
+        <span class='particles-circle'></span>
+        <span class='particles-circle'></span>
+        <span class='particles-circle'></span>
+        <span class='particles-circle'></span>
+        <span class='particles-circle'></span>
+        <span class='particles-circle'></span>
+        <span class='particles-circle'></span>
+        <span class='particles-circle'></span>
+        <span class='particles-circle'></span>
+        <span class='particles-circle'></span>
+        <span class='particles-circle'></span>-->
+      </div>
+    </div>
+
+
+    <div class="content_input_clipboard">
+
+      <div class="copy-text">
+  
+    
+        <input type="text" class="text" id="clave-generate" value="clave" readonly>
+        <button class="btn btn-outline-primary">
+          <i class="fa fa-clone" aria-hidden="true"></i>
+        </button>
+      </div>
+    </div>
+   
+  
+    
+  </div>
+   <!--generador clave - fin-->
+
+
+</main>
+  <pre id="content" style="white-space: pre-wrap;"></pre>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script   src="script-js/index-interactive.js" ></script>
+   <script  type="module" src="script-js/conection-api-key.js"></script>
+  <script async defer src="https://apis.google.com/js/api.js" id="gapi" ></script>
+  <script async defer src="https://accounts.google.com/gsi/client" id="gis" ></script>
+
+</body>
+
+</html>
