@@ -97,7 +97,7 @@ respon = document.getElementById('text_value').value
  
 respon = respon.trim();
 
- return respon
+ return respon 
  
 }
 
@@ -118,7 +118,7 @@ function print_data(){
 
 respon = value_input()
 
-console.log(respon)
+console.log("Respuesta: " + respon)
 
 
 if(academica_checked()){
@@ -136,8 +136,11 @@ if(profesores_checked()){
 aux_array = profesores;
 
 }
+if(!(document.getElementById('text_value').validity.valueMissing)&&respon!==""){
 
- resultado = aux_array.filter(ema => ema.Correo_personal == respon)
+ resultado = aux_array.filter(ema =>  {
+  const regex = new RegExp(`\\b${respon}\\b`, "i");
+   return regex.test(ema.Correo_personal);});
 
 
    
@@ -148,21 +151,26 @@ aux_array = profesores;
 
   if(respon>0){
 
-     resultado = aux_array.filter(ids => ids.id == respon)
+     resultado = aux_array.filter(ids => ids.id == respon);
      
 
   }else{
     if(resultado.length==0)
   {
 
-    resultado = aux_array.filter(ema => ema.usuario == respon)
- 
+    resultado = aux_array.filter(user => 
+      {
+        const regex = new RegExp(`\\b${respon}\\b`, "i");
+         return regex.test(user.usuario);});
   }
 
 
   }
 
-  if(buscar_por_nombre_checked()){
+}
+  console.log("validación campo vacio: "+ !(document.getElementById('text_value').validity.valueMissing))
+
+  if(buscar_por_nombre_checked()&& !(document.getElementById('text_value').validity.valueMissing)&&respon!==""){
 
     resultado = aux_array.filter(personaArray => {
      const regex = new RegExp(`\\b${respon}\\b`, "i");
@@ -171,8 +179,40 @@ aux_array = profesores;
 
   
   }
+  
+  if(document.getElementById("id_detalle_check").checked&& !(document.getElementById('text_value').validity.valueMissing)&&respon!==""){
+
+    resultado = aux_array.filter(fila => {
+
+      return fila.id.includes(respon);
+    }
+     
+  );
 
   
+  }
+  if(document.getElementById("fecha_check").checked&& !(document.getElementById('text_value').validity.valueMissing)&&respon!==""){
+
+    resultado = aux_array.filter(fila => {
+
+      return fila.fecha.includes(respon);
+    }
+     
+  );
+
+  
+  }
+  if(document.getElementById("year_check").checked&& !(document.getElementById('text_value').validity.valueMissing)&&respon!==""){
+
+    resultado = aux_array.filter(fila => {
+
+      return fila.year.includes(respon);
+    }
+     
+  );
+
+  
+  }
   console.log(resultado)
 
 if(resultado.length == 0){
@@ -222,25 +262,49 @@ function cargarRegistros(){
 
       if(academica_checked()){
 
-    
-     fila.innerHTML =
-         '<td>' +(index+1) +'</td>' + 
-       '<td>' +  data.fecha +'</td>' + 
-        '<td>' +  data.programa + '</td>' +
-        '<td> ' +  data.nombre_full +' </td>' + 
-        '<td> ' +  data.id +' </td>' + 
-        '<td> <input  type="text" class="input-table input-user" value="' +  data.usuario +'" readonly> </td>' + 
-        '<td> <input  type="text" class="input-table" value="' +  data.clave +'" readonly> </td>' + 
-        '<td> ' +  data.Correo_personal +' </td>' + 
-        '<td> ' +  data.tanda +' </td> <tr>' ;
+        if(document.getElementById("year_check").checked){
+
+
+          fila.innerHTML =
+          '<td>' +(index+1) +'</td>' + 
+        '<td>' +  year.fecha +'</td>' + 
+        '<td>' +  data.fecha +'</td>' + 
+         '<td>' +  data.programa + '</td>' +
+         '<td> ' +  data.nombre_full +' </td>' + 
+         '<td> ' +  data.id +' </td>' + 
+         '<td> <input  type="text" class="input-table input-user" value="' +  data.usuario +'" readonly> </td>' + 
+         '<td> <input  type="text" class="input-table" value="' +  data.clave +'" readonly> </td>' + 
+         '<td> ' +  data.Correo_personal +' </td>' + 
+         '<td> ' +  data.tanda +' </td> <tr>' ;
+          
+        }
+        else{
+
+          fila.innerHTML =
+          '<td>' +(index+1) +'</td>' + 
+  
+        '<td>' +  data.fecha +'</td>' + 
+         '<td>' +  data.programa + '</td>' +
+         '<td> ' +  data.nombre_full +' </td>' + 
+         '<td> ' +  data.id +' </td>' + 
+         '<td> <input  type="text" class="input-table input-user" value="' +  data.usuario +'" readonly> </td>' + 
+         '<td> <input  type="text" class="input-table" value="' +  data.clave +'" readonly> </td>' + 
+         '<td> ' +  data.Correo_personal +' </td>' + 
+         '<td> ' +  data.tanda +' </td> <tr>' ;
+
+        }
+  
       
        
       }
 
       if(extension_checked()){
+        if(document.getElementById("year_check").checked){
+
 
         fila.innerHTML = 
         '<td>' +(index+1) +'</td>' + 
+        '<td>' + data.year +'</td>' + 
         '<td>' + data.fecha +'</td>' + 
         
          '<td>' + data.programa + '</td>' +
@@ -250,8 +314,24 @@ function cargarRegistros(){
          '<td> <input  type="text" class="input-table input-user" value="' + data.usuario +'" readonly> </td>' + 
          '<td> <input  type="text" class="input-table" value="' + data.clave +'" readonly> </td>' + 
          '<td> ' + data.Correo_personal +' </td><tr>' ;
-        
-        
+        }
+        else{
+
+          fila.innerHTML = 
+          '<td>' +(index+1) +'</td>' + 
+          '<td>' + data.fecha +'</td>' + 
+          
+           '<td>' + data.programa + '</td>' +
+           '<td> ' + data.id +' </td>' + 
+           '<td> ' + data.nombre_full +' </td>' + 
+       
+           '<td> <input  type="text" class="input-table input-user" value="' + data.usuario +'" readonly> </td>' + 
+           '<td> <input  type="text" class="input-table" value="' + data.clave +'" readonly> </td>' + 
+           '<td> ' + data.Correo_personal +' </td><tr>' ;
+          
+
+
+        }
         }
         
                 
@@ -293,6 +373,20 @@ const cargarItemPaginacion = () => {
     }</button>`;
     item.innerHTML = enlace;
     document.querySelector("#items").append(item);
+    if(index+1 >= 40)
+    {
+
+
+      document.querySelector(".d-flex").classList.remove("justify-content-center");
+      document.querySelector(".d-flex").style.padding = "0 0 0 20px";
+
+
+    }else{
+
+      document.querySelector(".d-flex").classList.add("justify-content-center");
+
+
+    }
   }
 };
 
@@ -531,9 +625,10 @@ export async  function listMajors() {
   range_academica.values.forEach((fila) => {
 
 
-   
 
     const dato = {
+      year: fila[0],
+      
       fecha: fila[1],
       programa: fila[2],
       nombre_full: fila[5],
@@ -543,6 +638,10 @@ export async  function listMajors() {
       Correo_personal: to_Lower_Case(fila[15]),
       tanda: fila[17]
     };
+
+  
+  
+   
     alumno.push(dato);
 
   });
@@ -550,9 +649,9 @@ export async  function listMajors() {
   range_extension.values.forEach((fila) => {
 
 
-   
-
+ 
     const dato_e = {
+      year: fila[0],
    fecha: fila[1],
    programa: fila[2],
    id: fila[3],
@@ -562,6 +661,13 @@ export async  function listMajors() {
   clave: fila[12],
   Correo_personal: to_Lower_Case(fila[13])
   };
+
+
+
+
+
+
+
       alumno_extension.push(dato_e);
 
     });

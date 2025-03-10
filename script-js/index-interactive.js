@@ -9,6 +9,9 @@ window.addEventListener('load', (event) => {
   this.inicio_values();
   this.button_copy();
   this.checked();
+  this.IUD_acordeon();
+  this.table();
+
 
 });
 
@@ -151,5 +154,71 @@ const createSnow = (density) => {
 
 createSnow(100);
 */
+/* acordeon by danny*/
+function IUD_acordeon() {
+
+    
+
+  const acr = document.getElementsByClassName('IUD_accordion-item');
+
+  for (i=0; i<acr.length; i++) {
+      acr[i].addEventListener('click', function () {
+      this.classList.toggle('IUD_accordion-active')
+
+
+      if(this.classList.contains('IUD_accordion-active'))
+
+
+      {            
+          this.classList.remove('rem')
+
+    
+      }else{
+
+          this.classList.add('rem')
+
+      }
+    
+
+
+
+    })
+  }
+}
+
+/*acordeon*/
+
+/*table JS*/
+
+
+function table(){
+  let bandera =1;
+  document.getElementById("year_add_check").addEventListener('click',()=>{
+ 
+    if(bandera===1){
+      document.getElementById("year_table").removeAttribute("style");
+      document.getElementById("year_table_ext").removeAttribute("style");
+      
+      bandera=0;
+
+    }else{
+
+      document.getElementById("year_table").style.display ="none";
+      document.getElementById("year_table_ext").style.display ="none";
+      bandera=1;
+    }
+
+
+
+  }
+
+
+
+  )
+
+    
 
  
+
+
+}

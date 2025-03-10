@@ -1,0 +1,544 @@
+
+*
+{
+    box-sizing: border-box;
+
+}
+
+body{
+    max-width: 100%;
+ margin: auto;
+}
+.IUD_img_float_container img{
+
+
+    background-image: url(../img/img_vacia.png);
+    background-size: 100px !important;
+width: 100px !important;
+
+height: 60px !important;
+} 
+
+.col-md-12 img{
+
+    background-image: url(../img/img_vacia.png);
+    background-size: 500px;
+    background-repeat: no-repeat;
+width: 100%;
+
+height: 300px;
+}
+.col-md-11 img{
+
+    background-image: url(../img/img_vacia.png);
+    background-size: 590px;
+    background-repeat: no-repeat;
+width: 100%;
+
+height: 300px;
+}
+.col-md-10 img{
+
+    background-image: url(../img/img_vacia.png);
+    background-size: 590px;
+    background-repeat: no-repeat;
+width: 100%;
+
+height: 300px;
+}
+.col-md-4 img{
+
+    background-image: url(../img/img_vacia.png);
+    background-size: 210px;
+    background-repeat: no-repeat;
+width: 100%;
+
+height: 120px;
+
+}
+.IUD_container_azul_2019{
+
+display: block;
+    
+    width: 100%;
+    margin: auto;
+    height: 100%;
+    
+}
+
+.IUD_container{
+
+    width: 100%;
+}
+
+.grid-row {
+    display: flex;
+  flex-wrap:wrap;
+    
+    margin-right: -12px;
+    margin-left: -12px;
+ max-width: 100%;
+}
+.alert_2019 {
+    padding: 12px 36px 12px 12px;
+    background-color: #FBEDE7;
+}
+.alert-success_2019 {
+    background-color: rgba(147, 179, 58, 0.1) !important;
+    border-left-color: #93B33A;
+    border-left-style: solid;
+    border-left-width: 4px;
+    padding-left: 3%;
+}
+.alert-info_2019 {
+    background-color: rgba(21, 179, 220, 0.1) !important;
+    border-left-color: #15B3DC;
+    border-left-style: solid;
+    border-left-width: 4px;
+    padding-left: 3%;
+}
+.alert-warning_2019 {
+    background-color: rgba(229, 102, 26, 0.1) !important;
+    border-left-color: #E5661A;
+    border-left-style: solid;
+    border-left-width: 4px;
+    padding-left: 3%;
+}
+.alert-danger_2019, .alert-error_2019 {
+    background-color: rgba(217, 36, 50, 0.1) !important;
+    border-left-color: #D92432;
+    border-left-style: solid;
+    border-left-width: 4px;
+    padding-left: 3%;
+}
+
+
+@media only screen and (min-width: 400px){
+
+    
+
+.col-md-12 {
+    flex-basis: 100%;
+    max-width:  100%;
+  
+ 
+}
+.col-md-11 {
+    flex-basis: 91.6666666667%;
+    max-width: 91.6666666667%;
+}
+  
+ 
+
+
+.col-md-10 {
+    flex-basis: 83.3333333333%;
+    max-width: 83.3333333333%;
+}
+  
+ 
+
+.col-md-9 {
+    flex-basis: 75%;
+    max-width: 75%;
+  
+ 
+}
+.col-md-8 {
+    flex-basis: 66.6666666667%;
+    max-width: 66.6666666667%;
+  
+ 
+}
+.col-md-7 {
+    flex-basis: 58.3333333333%;
+    max-width: 58.3333333333%;
+ 
+}
+.col-md-6 {
+    flex-basis: 50%;
+    max-width: 50%;
+  
+ 
+}
+.col-md-5 {
+    flex-basis: 41.6666666667%;
+    max-width: 41.6666666667%;
+  
+ 
+}
+
+.col-md-4 {
+    flex-basis: 33.3333333333%;
+    max-width: 33.3333333333%;
+}
+
+.col-md-3 {
+    flex-basis: 25%;
+    max-width: 25%;
+}
+
+.col-md-2 {
+    flex-basis: 16.6666666667%;
+    max-width: 16.6666666667%;
+}
+.col-md-1 {
+    flex-basis: 8.3333333333%;
+    max-width: 8.3333333333%;
+}
+
+
+}
+
+
+
+
+@media only screen and (min-width: 400px) 
+
+{
+.off-md-12, .col-md-12, .off-md-11, .col-md-11, .off-md-10, .col-md-10, .off-md-9, .col-md-9, .off-md-8, .col-md-8, .off-md-7, .col-md-7, .off-md-6, .col-md-6, .off-md-5, .col-md-5, .off-md-4, .col-md-4, .off-md-3, .col-md-3, .off-md-2, .col-md-2, .off-md-1, .col-md-1, .col-md {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 0;
+    flex-shrink: 0;
+    padding-right: 12px;
+    padding-left: 12px;
+
+}
+}
+
+
+
+
+
+.btn-info, .Button--secondary {
+    background: var(--ic-brand-button--secondary-bgd);
+    color: var(--ic-brand-button--secondary-text);
+    border: 1px solid;
+    border-color: var(--ic-brand-button--secondary-bgd-darkened-15);
+}
+.btn, .Button, .ui-button {
+    background: #f5f5f5;
+    color: #2d3b45;
+    border: 1px solid;
+    border-color: #c7cdd1;
+    border-radius: 3px;
+    transition: background-color .2s ease-in-out;
+    display: inline-block;
+    position: relative;
+    padding: 8px 14px;
+    margin-bottom: 0;
+    font-size: 16px;
+    font-size: 1rem;
+    line-height: 20px;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    text-decoration: none;
+    overflow: hidden;
+    text-shadow: none;
+    -webkit-user-select: none;
+    user-select: none;
+}
+.btn-success, .Button--success {
+    background: #0b874b;
+    color: #fff;
+    border: 1px solid;
+    border-color: #054024;
+}
+
+.btn-danger, .Button--danger {
+    background: #e0061f;
+    color: #fff;
+    border: 1px solid;
+    border-color: #950415;
+}
+
+.btn-warning, .Button--warning {
+    background: #fc5e13;
+    color: #fff;
+    border: 1px solid;
+    border-color: #c03f02;
+}
+.btn-primary, .Button--primary {
+    background: var(--ic-brand-button--primary-bgd);
+    color: var(--ic-brand-button--primary-text);
+    border: 1px solid;
+    border-color: var(--ic-brand-button--primary-bgd-darkened-15);
+}
+
+a {
+    color: var(--ic-link-color);
+    text-decoration: none;
+}
+
+
+.off-xs-12, .col-xs-12, .off-xs-11, .col-xs-11, .off-xs-10, .col-xs-10, .off-xs-9, .col-xs-9, .off-xs-8, .col-xs-8, .off-xs-7, .col-xs-7, .off-xs-6, .col-xs-6, .off-xs-5, .col-xs-5, .off-xs-4, .col-xs-4, .off-xs-3, .col-xs-3, .off-xs-2, .col-xs-2, .off-xs-1, .col-xs-1, .col-xs {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 0;
+    flex-shrink: 0;
+    padding-right: 12px;
+    padding-left: 12px;
+
+
+}
+
+.col-xs-12 {
+    flex-basis: 100%;
+    max-width:  100%;
+  
+ 
+}
+.col-xs-11 {
+    flex-basis: 91.6666666667%;
+    max-width: 91.6666666667%;
+}
+  
+ 
+
+
+.col-xs-10 {
+    flex-basis: 83.3333333333%;
+    max-width: 83.3333333333%;
+}
+  
+ 
+
+.col-xs-9 {
+    flex-basis: 75%;
+    max-width: 75%;
+  
+ 
+}
+.col-xs-8 {
+    flex-basis: 66.6666666667%;
+    max-width: 66.6666666667%;
+  
+ 
+}
+.col-xs-7 {
+    flex-basis: 58.3333333333%;
+    max-width: 58.3333333333%;
+ 
+}
+.col-xs-6 {
+    flex-basis: 50%;
+    max-width: 50%;
+  
+ 
+}
+.col-xs-5 {
+    flex-basis: 41.6666666667%;
+    max-width: 41.6666666667%;
+  
+ 
+}
+
+.col-xs-4 {
+    flex-basis: 33.3333333333%;
+    max-width: 33.3333333333%;
+}
+
+.col-xs-3 {
+    flex-basis: 25%;
+    max-width: 25%;
+}
+
+.col-xs-2 {
+    flex-basis: 16.6666666667%;
+    max-width: 16.6666666667%;
+}
+.col-xs-1 {
+    flex-basis: 8.3333333333%;
+    max-width: 8.3333333333%;
+}
+@media only screen and (min-width: 300px ) {
+    .col-sm-12 {
+        flex-basis: 100%;
+        max-width:  100%;
+      
+     
+    }
+    .col-sm-11 {
+        flex-basis: 91.6666666667%;
+        max-width: 91.6666666667%;
+    }
+      
+     
+    
+    
+    .col-sm-10 {
+        flex-basis: 83.3333333333%;
+        max-width: 83.3333333333%;
+    }
+      
+     
+    
+    .col-sm-9 {
+        flex-basis: 75%;
+        max-width: 75%;
+      
+     
+    }
+    .col-sm-8 {
+        flex-basis: 66.6666666667%;
+        max-width: 66.6666666667%;
+      
+     
+    }
+    .col-sm-7 {
+        flex-basis: 58.3333333333%;
+        max-width: 58.3333333333%;
+     
+    }
+    .col-sm-6 {
+        flex-basis: 50%;
+        max-width: 50%;
+      
+     
+    }
+    .col-sm-5 {
+        flex-basis: 41.6666666667%;
+        max-width: 41.6666666667%;
+      
+     
+    }
+    
+    .col-sm-4 {
+        flex-basis: 33.3333333333%;
+        max-width: 33.3333333333%;
+    }
+    
+    .col-sm-3 {
+        flex-basis: 25%;
+        max-width: 25%;
+    }
+    
+    .col-sm-2 {
+        flex-basis: 16.6666666667%;
+        max-width: 16.6666666667%;
+    }
+    .col-sm-1 {
+        flex-basis: 8.3333333333%;
+        max-width: 8.3333333333%;
+    }
+}
+@media only screen and (min-width: 300px) and (max-width: 400px){
+.off-sm-12, .col-sm-12, .off-sm-11, .col-sm-11, .off-sm-10, .col-sm-10, .off-sm-9, .col-sm-9, .off-sm-8, .col-sm-8, .off-sm-7, .col-sm-7, .off-sm-6, .col-sm-6, .off-sm-5, .col-sm-5, .off-sm-4, .col-sm-4, .off-sm-3, .col-sm-3, .off-sm-2, .col-sm-2, .off-sm-1, .col-sm-1, .col-sm {
+    box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 0;
+    flex-shrink: 0;
+    padding-right: 16px;
+    padding-left: 16px;
+    
+}
+}
+
+
+body {
+    min-height: 100vh;
+    background: #fff;
+    font-weight: 300;
+}
+.IUD_banner_2022 {
+    border-left-color: #f1b53b;
+    background-color: #023D59;
+    border-left-style: solid;
+    border-left-width: 10px;
+    margin-left: 0 !important;
+}
+
+
+.IUD_container_2019 h1, .IUD_container_rojo_2019 h1, .IUD_container_azul_2019 h1, .IUD_container_verde_2019 h1, .IUD_container_amarillo_2019 h1, .IUD_container_azulclaro_2019 h1, .IUD_container_naranja_2019 h1, .IUD_container_gris_2019 h1 {
+    color: var(--main-title-color);
+    font-size: 21pt !important;
+    font-weight: bolder;
+    margin-left: 2%;
+}
+:root {
+    --fLzZc-background: #FFFFFF;
+    --fLzZc-borderColor: #C7CDD1;
+    --fLzZc-borderWidth: 0.0625rem;
+    --fLzZc-borderStyle: solid;
+    --fLzZc-boxShadow: 0 0.375rem 0.4375rem rgba(0, 0, 0, 0.1), 0 0.625rem 1.75rem rgba(0, 0, 0, 0.25);
+    --fLzZc-xSmallWidth: 16em;
+    --fLzZc-smallWidth: 20em;
+    --fLzZc-regularWidth: 30em;
+    --fLzZc-mediumWidth: 48em;
+    --fLzZc-largeWidth: 62em;
+    --fLzZc-zIndex: 9999;
+}
+:root {
+    --main-rojo-color: #BF2935;
+    --main-azul-color: #00618A;
+    --main-verde-color: #93B33A;
+    --main-amarillo-color: #E7BA48;
+    --main-azulclaro-color: #00B8E0;
+    --main-naranja-color: #E6661A;
+    --main-gris-color: #666666;
+    --main-grisclaro-color: #999999;
+    --main-title-color: #F1B53B;
+}
+:root {
+    --ic-brand-primary-darkened-5: #7F7F7F;
+    --ic-brand-primary-darkened-10: #787878;
+    --ic-brand-primary-darkened-15: #727272;
+    --ic-brand-primary-lightened-5: #8B8B8B;
+    --ic-brand-primary-lightened-10: #919191;
+    --ic-brand-primary-lightened-15: #979797;
+    --ic-brand-button--primary-bgd-darkened-5: #8CAB38;
+    --ic-brand-button--primary-bgd-darkened-15: #7D9932;
+    --ic-brand-button--secondary-bgd-darkened-5: #0074F3;
+    --ic-brand-button--secondary-bgd-darkened-15: #0068D9;
+    --ic-brand-font-color-dark-lightened-15: #4C5860;
+    --ic-brand-font-color-dark-lightened-28: #677179;
+    --ic-link-color-darkened-10: #006EE6;
+    --ic-link-color-lightened-10: #1987FF;
+    --ic-brand-primary: #858585;
+    --ic-brand-font-color-dark: #2D3B45;
+    --ic-link-color: #007AFF;
+    --ic-brand-button--primary-bgd: #93B33A;
+    --ic-brand-button--primary-text: #ffffff;
+    --ic-brand-button--secondary-bgd: #007AFF;
+    --ic-brand-button--secondary-text: #ffffff;
+    --ic-brand-global-nav-bgd: #003F59;
+    --ic-brand-global-nav-ic-icon-svg-fill: #ffffff;
+    --ic-brand-global-nav-ic-icon-svg-fill--active: #BF2935;
+    --ic-brand-global-nav-menu-item__text-color: #ffffff;
+    --ic-brand-global-nav-menu-item__text-color--active: var(--ic-link-color);
+    --ic-brand-global-nav-avatar-border: #BF2935;
+    --ic-brand-global-nav-menu-item__badge-bgd: #ffffff;
+    --ic-brand-global-nav-menu-item__badge-bgd--active: var(--ic-brand-primary);
+    --ic-brand-global-nav-menu-item__badge-text: #93B33A;
+    --ic-brand-global-nav-menu-item__badge-text--active: #ffffff;
+    --ic-brand-global-nav-logo-bgd: #ffffff;
+    --ic-brand-header-image: url(https://instructure-uploads.s3.amazonaws.com/account_184820000000000001/attachments/1/LogoPEQ_180_margen.png);
+    --ic-brand-mobile-global-nav-logo: url(https://instructure-uploads.s3.amazonaws.com/account_184820000000000001/attachments/2/logos_IUD_3.png);
+    --ic-brand-watermark: ;
+    --ic-brand-watermark-opacity: 1.0;
+    --ic-brand-favicon: url(https://instructure-uploads.s3.amazonaws.com/account_184820000000000001/attachments/3/LogoPEQ-100.png);
+    --ic-brand-apple-touch-icon: url(https://instructure-uploads.s3.amazonaws.com/account_184820000000000001/attachments/4/LogoPEQ_180_margen%20%25281%2529.png);
+    --ic-brand-msapplication-tile-color: #bf2935;
+    --ic-brand-msapplication-tile-square: url(https://instructure-uploads.s3.amazonaws.com/account_184820000000000001/attachments/5/logoPEQ_Mesa%20de%20trabajo%201.png);
+    --ic-brand-msapplication-tile-wide: url(https://instructure-uploads.s3.amazonaws.com/account_184820000000000001/attachments/7/logoPEQ-04.png);
+    --ic-brand-right-sidebar-logo: url(https://instructure-uploads.s3.amazonaws.com/account_184820000000000001/attachments/6/Logo_IUD.png);
+    --ic-brand-Login-body-bgd-color: #394B58;
+    --ic-brand-Login-body-bgd-image: url(https://instructure-uploads.s3.amazonaws.com/account_184820000000000001/attachments/123550/06062022_FONDO_CANVAS_S1639_03.jpg);
+    --ic-brand-Login-body-bgd-shadow-color: #2D3B45;
+    --ic-brand-Login-logo: url(https://instructure-uploads.s3.amazonaws.com/account_184820000000000001/attachments/165/Logo_IUD.png);
+    --ic-brand-Login-Content-bgd-color: #f2f2f2;
+    --ic-brand-Login-Content-border-color: none;
+    --ic-brand-Login-Content-inner-bgd: none;
+    --ic-brand-Login-Content-inner-border: none;
+}
+html {
+    font-size: 100%;
+    -webkit-text-size-adjust: 100%;
+    -ms-text-size-adjust: 100%;
+    font-family: "Lato Extended","Lato","Helvetica Neue",Helvetica,Arial,sans-serif;
+}
