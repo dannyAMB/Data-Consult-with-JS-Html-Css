@@ -213,17 +213,26 @@ if(!(document.getElementById('text_value').validity.valueMissing)&&respon!==""){
 
   
   }
-  console.log(resultado)
+  console.log(resultado.length)
 
-if(resultado.length == 0){
+if(resultado.length == 0 ||document.getElementById('text_value').validity.valueMissing||respon==""){
 document.getElementById("content_table_body").innerHTML =   '<td colspan="9" style="text-align:center;"> Sin resultados </td>'
+console.log("sin resultado: " + resultado);
+document.getElementById("year_add_check").disabled = false;
+document.querySelector(".year_add_check_slider").classList.remove("disabled");
+
 
 }else{
 
   let ver_resul = ""
   let html_table_boddy = "";
   let num;
+if(document.getElementById("year_add_check").checked){
+  document.querySelector(".year_add_check_slider").classList.add("disabled");
+  document.getElementById("year_add_check").disabled = true;
 
+
+}
   desde = 0;
   paginaActiva = 1;
 
@@ -262,12 +271,12 @@ function cargarRegistros(){
 
       if(academica_checked()){
 
-        if(document.getElementById("year_check").checked){
+        if(document.getElementById("year_add_check").checked){
 
 
           fila.innerHTML =
           '<td>' +(index+1) +'</td>' + 
-        '<td>' +  year.fecha +'</td>' + 
+        '<td>' +  data.year +'</td>' + 
         '<td>' +  data.fecha +'</td>' + 
          '<td>' +  data.programa + '</td>' +
          '<td> ' +  data.nombre_full +' </td>' + 
@@ -299,7 +308,7 @@ function cargarRegistros(){
       }
 
       if(extension_checked()){
-        if(document.getElementById("year_check").checked){
+        if(document.getElementById("year_add_check").checked){
 
 
         fila.innerHTML = 
@@ -357,6 +366,8 @@ function cargarRegistros(){
 
       
     });
+
+
     cargarItemPaginacion();
 
 
