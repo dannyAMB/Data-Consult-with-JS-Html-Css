@@ -2,6 +2,16 @@
 
 let inputsearch = document.querySelector('input')
 
+
+/*pre-load generador*/
+window.onload = (event) => {
+
+  var min = 0;
+  var max = 9999;
+
+  generador_clave(Math.floor(Math.random()*(max-min+1)+min));
+};
+
 /**
 function input_data_text(){
 
@@ -41,13 +51,16 @@ const letters = 'ABCDEFGHIJKLMNOPQRSTUVWXYZABCDEFGHIJKLMNOPQRSTUVWXYZ';
         // Obtener la letra correspondiente al índice
         const randomsimbol = simbol[randomIndex];
         const randomLetter = letters[randomIndex];
-  
+        const randomLettertwo = letters[Math.floor(Math.random() * letters.length)];
 
-
+        const randomsimboltwo = simbol[Math.floor(Math.random() * letters.length)];
+        const randomsimboltree = simbol[Math.floor(Math.random() * letters.length)];
+        const randomLettertree = letters[Math.floor(Math.random() * letters.length)];
+       
         // Mostrar la letra en el elemento con id 'randomLetter'
          
 
-return (randomLetter +randomsimbol);
+return (randomLetter +randomsimbol+randomLettertwo +randomsimboltwo+randomsimboltree+ randomLettertree);
 }
 
 async function  generador_clave(id){
