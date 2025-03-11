@@ -124,7 +124,7 @@ function input_config(){
 
   document.getElementById('text_value').readOnly = false;
   document.getElementById('text_value').placeholder = 'Search..';
-  
+  generador_clave(respon);
  }
 
 function print_data(){
@@ -191,8 +191,10 @@ if(!(document.getElementById('text_value').validity.valueMissing)&&respon!==""){
   if(buscar_por_nombre_checked()&& !(document.getElementById('text_value').validity.valueMissing)&&respon!==""){
 
     resultado = aux_array.filter(personaArray => {
-     const regex = new RegExp(`\\b${respon}\\b`, "i");
-      return regex.test(personaArray.nombre_full);
+   //   const regex = new RegExp(`\\b${respon}\\b`, "i");
+    //  return regex.test(personaArray.nombre_full);
+    return personaArray.nombre_full.toLowerCase().includes(respon.toLowerCase())
+
     });
 
   
@@ -239,6 +241,8 @@ document.getElementById("content_table_body").innerHTML =   '<td colspan="9" sty
 console.log("sin resultado: " + resultado);
 document.getElementById("year_add_check").disabled = false;
 document.querySelector(".year_add_check_slider").classList.remove("disabled");
+
+
 
 
 }else{
