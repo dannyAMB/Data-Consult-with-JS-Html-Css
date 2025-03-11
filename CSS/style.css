@@ -239,7 +239,7 @@ margin: 4px;
   background:#fff;
   border:1px solid #ddd;
  width: 100%;
- 
+ border-radius: 20px;
   display:flex;
 
 }
@@ -251,6 +251,7 @@ margin: 4px;
   outline:none;
   padding-right:10px;
   width:100%;
+
 }
 .copy-text button {
   width: auto;
@@ -270,6 +271,7 @@ margin: 4px;
 .copy-text button:before {
   content:"Copied";
   position:absolute;
+  color: #ffffff;
   top:-45px;
   right:0px;
   background:#5c81dc;
@@ -288,23 +290,25 @@ margin: 4px;
   background:#5c81dc;
   transform:rotate(45deg);
   display:none;
+
 }
 .copy-text.active button:before,
 .copy-text.active button:after {
   display:block;
-}
-
-
-#content_table_body{
-
-  transition-property: all !important;
-  transition-duration: 1s;
 
 }
-.fila-alum{
-  
-  transition-property: all !important;
-  transition-duration: 1s;
+
+
+
+#btn_copy:hover{
+
+background-color: #2d42ff31;
+
+}
+#btn_copy:active{
+
+  background-color: #de0e8131;
+
 }
 
 /*clipboad - fin*/  

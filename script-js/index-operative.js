@@ -57,9 +57,14 @@ let aux_clave;
 document.getElementById('generator-button').addEventListener("click", ()=>{
 
 aux_clave = "IUD"+id+ ramdom_numfour() +generarCaracteresAleatorios();
+document.querySelector(".lds-ellipsis").classList.add("active_load");
+document.getElementById("generator-button").classList.add("letra_botom");
 
 setTimeout(function(){  
 clave.value = aux_clave;
+document.querySelector(".lds-ellipsis").classList.remove("active_load");
+document.getElementById("generator-button").classList.remove("letra_botom");
+
 }, 1900);
 
 
@@ -214,6 +219,7 @@ if(!(document.getElementById('text_value').validity.valueMissing)&&respon!==""){
   
   }
   console.log(resultado.length)
+  document.querySelector("#items").innerHTML = "";
 
 if(resultado.length == 0 ||document.getElementById('text_value').validity.valueMissing||respon==""){
 document.getElementById("content_table_body").innerHTML =   '<td colspan="9" style="text-align:center;"> Sin resultados </td>'
@@ -224,10 +230,13 @@ document.querySelector(".year_add_check_slider").classList.remove("disabled");
 
 }else{
 
+
   let ver_resul = ""
   let html_table_boddy = "";
   let num;
-if(document.getElementById("year_add_check").checked){
+
+if(document.getElementById("year_add_check").checked)
+{
   document.querySelector(".year_add_check_slider").classList.add("disabled");
   document.getElementById("year_add_check").disabled = true;
 
@@ -235,12 +244,9 @@ if(document.getElementById("year_add_check").checked){
 }
   desde = 0;
   paginaActiva = 1;
-
-
   paginas = resultado.length / limite;
-  
   result_two = resultado.slice(desde, limite);
-cargarRegistros();
+  cargarRegistros();
   generador_clave(resultado[0].id)
 
 }
