@@ -115,6 +115,10 @@ document.getElementById('authorize_button').addEventListener('click', ()=>{
     document.getElementById('signout_button').style.display = 'block'
 
     document.getElementById('authorize_button').innerText = 'Refresh';
+    document.getElementById('text_value').placeholder = '';
+    document.querySelector('.cortina').removeAttribute("style");
+    document.getElementById('text_value').readOnly = true;
+    document.getElementById('text_value').value = '';
 
     await listMajors();
   };

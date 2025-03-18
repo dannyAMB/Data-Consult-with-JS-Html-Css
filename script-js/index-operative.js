@@ -107,7 +107,12 @@ let info_array_aux;
 
 
 document.getElementById('text_value').addEventListener("input", print_data)
+document.getElementById('year_add_check').addEventListener("click", ()=>{
 
+  print_data();
+
+}
+)
 function value_input(){
 
 //document.getElementById('content').innerText = "Resultado filter: " + resultado;
@@ -123,7 +128,10 @@ function input_config(){
 
 
   document.getElementById('text_value').readOnly = false;
+  document.querySelector('.cortina').style.display = "none"
   document.getElementById('text_value').placeholder = 'Search..';
+ 
+
   generador_clave(respon);
  }
 

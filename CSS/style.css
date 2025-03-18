@@ -30,6 +30,8 @@ body{
   flex-direction: column;
   align-items: center;
   gap: 20px;
+
+
 }
 
 .header_content{
@@ -55,6 +57,7 @@ body{
   /* fin botones login */
 
 main{
+ 
 
  width: 98%;
 }
