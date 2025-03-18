@@ -275,6 +275,15 @@ display: block;
     position: fixed;
   align-items: center;
   justify-content: center;
- 
+  flex-direction: column;
+
   }
 
+  .parpadeo {
+    animation: parpadear 1s infinite;
+}
+
+@keyframes parpadear {
+    0%, 100% { opacity: 1; } /* Visible */
+    50% { opacity: 0; } /* Invisible */
+}

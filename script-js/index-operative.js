@@ -109,7 +109,11 @@ let info_array_aux;
 document.getElementById('text_value').addEventListener("input", print_data)
 document.getElementById('year_add_check').addEventListener("click", ()=>{
 
-  print_data();
+  if(resultado.length>0){
+
+    print_data();
+  }
+  
 
 }
 )
