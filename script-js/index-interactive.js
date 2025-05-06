@@ -1,3 +1,4 @@
+import * as alertsMesseges from "./alerts-messege.js";
 
 
 document.getElementById('header_extension').style.display = 'none';
@@ -5,14 +6,12 @@ document.getElementById('header_profesores').style.display = 'none';
 
 
 
-window.addEventListener('load', (event) => {
-  this.inicio_values();
-  this.button_copy();
-  this.checked();
-  this.IUD_acordeon();
-  this.table();
-
-
+window.addEventListener('load', () => {
+  inicio_values();
+  button_copy();
+  checked();
+  IUD_acordeon();
+  table();
 });
 
 function inicio_values() {
@@ -52,7 +51,7 @@ function button_copy() {
 
 
 }
-
+//fin copie text
 function checked() {
 
   let extension = document.getElementById('header_extension');
@@ -155,31 +154,19 @@ createSnow(100);
 */
 /* acordeon by danny*/
 function IUD_acordeon() {
+  const accordionItems = document.querySelectorAll('.IUD_accordion-item');
 
+  accordionItems.forEach(item => {
+    item.addEventListener('click', () => {
+      item.classList.toggle('IUD_accordion-active');
 
-
-  const acr = document.getElementsByClassName('IUD_accordion-item');
-
-  for (i = 0; i < acr.length; i++) {
-    acr[i].addEventListener('click', function () {
-      this.classList.toggle('IUD_accordion-active')
-
-
-      if (this.classList.contains('IUD_accordion-active')) {
-        this.classList.remove('rem')
-
-
+      if (item.classList.contains('IUD_accordion-active')) {
+        item.classList.remove('rem');
       } else {
-
-        this.classList.add('rem')
-
+        item.classList.add('rem');
       }
-
-
-
-
-    })
-  }
+    });
+  });
 }
 
 /*acordeon*/
@@ -205,6 +192,33 @@ function table() {
     }
 
 
+  }
+
+
+
+  )
+  let bandera2 = 1;
+
+  document.getElementById("user_check").addEventListener('click', () => {
+
+    if (bandera2 === 1) {
+      document.getElementById("header_User").removeAttribute("style");
+      document.getElementById("header_ID").style.display = "none";
+      document.getElementById("header_no_ID").style.display = "none";
+      document.getElementById("header_no_user").removeAttribute("style");
+
+      bandera2 = 0;
+
+    } else {
+
+      document.getElementById("header_User").style.display = "none";
+      
+      document.getElementById("header_ID").removeAttribute("style");
+      document.getElementById("header_no_user").style.display = "none";
+      document.getElementById("header_no_ID").removeAttribute("style");
+      bandera2 = 1;
+    }
+
 
   }
 
@@ -215,6 +229,33 @@ function table() {
 
 
 
-
-
 }
+
+
+
+
+let table_search = document.getElementById("table_search");
+let table_search_masiv = document.getElementById("table_search-masiv");
+document.getElementById("accordion_item_click").addEventListener("click", ()=>{
+
+
+  if(table_search_masiv.classList.contains('desactive')){
+    table_search_masiv.classList.remove('desactive');
+
+    table_search.classList.add('desactive');
+
+  }else{
+    table_search.classList.remove('desactive');
+    table_search_masiv.classList.add('desactive');
+  }
+  
+})
+
+//alertas mensajes
+document.getElementById("closeError").addEventListener('click', close_Error);
+function close_Error(){
+
+  alertsMesseges.closeError();
+}
+
+//fin alertas

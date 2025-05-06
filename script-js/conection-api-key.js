@@ -119,7 +119,11 @@ document.getElementById('authorize_button').addEventListener('click', () => {
     document.querySelector('.cortina').removeAttribute("style");
     document.getElementById('text_value').readOnly = true;
     document.getElementById('text_value').value = '';
+    if( document.getElementById("errorBox").classList.contains("show")){
+      document.getElementById("errorBox").classList.remove("show");
 
+    }
+   
     await listMajors();
   };
 

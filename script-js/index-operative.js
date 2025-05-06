@@ -1,6 +1,7 @@
-
-
-let inputsearch = document.querySelector('input')
+import * as alertsMesseges from "./alerts-messege.js";
+import * as validators from "./validateUtils.js";
+import * as domHelpers from "./domHelpers.js";
+let b;
 
 
 /*pre-load generador*/
@@ -33,7 +34,7 @@ function ramdom_numfour() {
 
 
   var min = 0;
-  var max = 9999;
+  var max = 99;
 
   var x = Math.floor(Math.random() * (max - min + 1) + min);
 
@@ -60,7 +61,7 @@ function generarCaracteresAleatorios() {
   // Mostrar la letra en el elemento con id 'randomLetter'
 
 
-  return (randomLetter + randomsimbol + randomLettertwo + randomsimboltwo + randomsimboltree + randomLettertree);
+  return (randomLetter + randomLettertwo + randomsimbol);
 }
 
 async function generador_clave(id) {
@@ -106,7 +107,10 @@ let info_array_aux;
 
 
 
-document.getElementById('text_value').addEventListener("input", print_data)
+document.getElementById('text_value').addEventListener("input", (e) => {
+  e.preventDefault();
+  print_data();
+})
 document.getElementById('year_add_check').addEventListener("click", () => {
 
   if (resultado.length > 0) {
@@ -135,6 +139,12 @@ function input_config() {
   document.querySelector('.cortina').style.display = "none"
   document.getElementById('text_value').placeholder = 'Search..';
 
+  if (b == 1) {
+
+    alertsMesseges.showExitBoxMessege();
+    b = 0;
+  }
+
 
   generador_clave(respon);
 }
@@ -143,13 +153,6 @@ function print_data() {
 
 
   input_config()
-
-
-
-  respon = value_input()
-
-  console.log("Respuesta: " + respon)
-
 
   if (academica_checked()) {
     aux_array = alumno;
@@ -166,6 +169,15 @@ function print_data() {
     aux_array = profesores;
 
   }
+  respon = value_input()
+
+  console.log("Respuesta: " + respon)
+
+
+
+
+
+
   if (!(document.getElementById('text_value').validity.valueMissing) && respon !== "") {
 
     resultado = aux_array.filter(ema => {
@@ -433,7 +445,7 @@ const cargarItemPaginacion = () => {
   }
 };
 
-const modificarArregloProductos = () => {
+const modificarArreglo = () => {
   result_two = resultado.slice(desde, limite * paginaActiva);
   cargarRegistros();
 };
@@ -442,7 +454,7 @@ window.pasarPagina = (pagina) => {
   paginaActiva = pagina + 1;
   desde = limite * pagina; //5
   if (desde <= resultado.length) {
-    modificarArregloProductos();
+    modificarArreglo();
   }
 };
 
@@ -450,7 +462,7 @@ window.nextPage = () => {
   if (paginaActiva < paginas) {
     desde += 5;
     paginaActiva++;
-    modificarArregloProductos();
+    modificarArreglo();
   }
 };
 
@@ -458,7 +470,7 @@ window.previusPage = () => {
   if (desde > 0) {
     paginaActiva--;
     desde -= 5;
-    modificarArregloProductos();
+    modificarArreglo();
   }
 };
 
@@ -583,8 +595,9 @@ export async function listMajors() {
 
 
     error_conex("Profesores");
+    alertsMesseges.showErrorBoxMessege(err);
     document.getElementById('profesores_check').click();
-    console.error('Error de api: ' + err)
+    console.error('Error de api: ' + err);
     remover_cortina_pre_loading();
     return;
   }
@@ -603,9 +616,10 @@ export async function listMajors() {
   } catch (err) {
 
 
-    error_conex("Extensión");  
+    error_conex("Extensión");
+    alertsMesseges.showErrorBoxMessege(err);
     document.getElementById('extension_check').click();
-    console.error('Error de api: ' + err)
+    console.error('Error de api: ' + err);
     remover_cortina_pre_loading();
     return;
   }
@@ -628,8 +642,9 @@ export async function listMajors() {
 
 
     error_conex("Académica");
+    alertsMesseges.showErrorBoxMessege(err);
     document.getElementById('academica_check').click();
-    console.error('Error de api: ' + err)
+    console.error('Error de api: ' + err);
     remover_cortina_pre_loading();
     return;
   }
@@ -639,30 +654,32 @@ export async function listMajors() {
   const range_academica = response_academica.result;
   if (!range_academica || !range_academica.values || range_academica.values.length == 0) {
     error_data("Académica");
-
-    console.warn('se encontraron errores')
+    alertsMesseges.showErrorBoxMessege();
+    console.warn('se encontraron errores');
     return;
 
   }
   const range_extension = response_extension.result;
   if (!range_extension || !range_extension.values || range_extension.values.length == 0) {
     error_data("Extensión");
-    console.warn('se encontraron errores')
+    alertsMesseges.showErrorBoxMessege();
+    console.warn('se encontraron errores');
     return;
 
   }
   const range_profesores = response_profesores.result;
   if (!range_profesores || !range_profesores.values || range_profesores.values.length == 0) {
     error_data("Profesores");
-    console.warn('se encontraron errores')
+    alertsMesseges.showErrorBoxMessege();
+    console.warn('se encontraron errores');
     return;
 
   }
 
 
   // Flatten to string to display
-  console.log("validar variable status: " + status_conex)
-  console.log(range_academica)
+  console.log("validar variable status: " + status_conex);
+  console.log(range_academica);
   range_academica.values.forEach((fila) => {
 
 
@@ -737,8 +754,25 @@ export async function listMajors() {
     status_conex = true;
 
   }
+  b = 1;
 
-  print_data()
+
+  if (academica_checked()) {
+    aux_array = alumno;
+
+  }
+
+  if (extension_checked()) {
+    aux_array = alumno_extension;
+
+
+  }
+  if (profesores_checked()) {
+
+    aux_array = profesores;
+
+  }
+  print_data();
   ///filter
 
 
@@ -770,3 +804,266 @@ function error_data(vr) {
   document.getElementById("content_table_body").innerHTML = `<td colspan="8" style="text-align:center; background-color:#ff0000; color:white;"> <p class="parpadeo">${vr} - Error en los datos <p> </td>`;
 
 }
+
+
+document.getElementById('fileInput').addEventListener('change', function (event) {
+  const input = event.target;
+  const fileName = input.files.length > 0 ? input.files[0].name : 'Ningún archivo seleccionado';
+  document.getElementById('fileName').textContent = fileName;
+});
+
+
+
+document.getElementById("fileInput").addEventListener("change", function (event) {
+  const file = event.target.files[0];
+  if (!file) return;
+  alertsMesseges.showProcessing();
+
+  const reader = new FileReader();
+  reader.onload = function (e) {
+    const data = new Uint8Array(e.target.result);
+    const workbook = XLSX.read(data, { type: "array" });
+    const sheetName = workbook.SheetNames[0];
+    const sheet = workbook.Sheets[sheetName];
+    const excelData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
+    event.target.value = '';
+    try {
+
+
+
+      compararDatos(excelData);
+
+
+
+    } catch (err) {
+
+      alertsMesseges.removeProcessing();
+
+      alertsMesseges.showErrorBoxMessege(err);
+
+
+      return;
+    }
+
+  };
+  reader.readAsArrayBuffer(file);
+});
+function compararDatos(excelData) {
+
+
+  var aux_array_alumno = aux_array;
+
+
+
+  cuerpoTabla_coincidencias.innerHTML = "";
+  cuerpoTabla_no_coincidencias.innerHTML = "";
+  const columnIndex = 0; // Comparar la columna "Nombre"
+  let coincidencias = [];
+  let no_coincidencias = [];
+
+console.log("aux_array_alumno: "+ aux_array_alumno.length )
+
+  excelData.forEach((fila, i) => {
+
+    //const valorArray = fila[columnIndex].id;
+    // const valorExcel = excelData[i + 1]?.[columnIndex] || "";
+    // console.log(valorExcel);
+
+    if (!aux_array_alumno || !aux_array_alumno.values || aux_array_alumno.length == 0) {
+
+      console.warn('se encontraron errores: "aux_array_alumno is undefined"');
+      alertsMesseges.removeProcessing();
+      throw new Error("The data API is undefined");
+
+    } else {
+
+
+      if (!document.getElementById("user_check").checked) {
+
+        coincidencias = filterID(aux_array_alumno, fila[0]);
+
+        console.log("total primer filtro: " + coincidencias.length);
+
+        if (coincidencias.length == 0 && fila[1] != null && fila[2] != null && fila[3] != null && fila[4] != null) {
+          let full_name = (fila[1] + " " + fila[2] + " " + fila[3] + " " + fila[4]);
+          coincidencias = filterName(aux_array_alumno, full_name);
+
+          console.log("total segundo filtro: " + coincidencias.length);
+        }
+
+        console.log("fila[5]:" + fila[5])
+        if (coincidencias.length == 0 && fila[5] != null) {
+
+          coincidencias = filterEmail(aux_array_alumno, fila[5]);
+
+        }
+
+      } else {
+
+
+
+        coincidencias = filterUser(alumno, fila[0]);
+
+
+      }
+
+
+
+
+    }
+
+
+
+
+
+
+
+    console.log("resultado include:" + coincidencias.length);
+    cargarRegistrosComparados(coincidencias, fila[0], fila[1] != null ? fila[1] : "N/E", fila[2] != null ? fila[2] : "N/E");
+
+
+  });
+
+  /* if (valorArray === valorExcel) {
+       coincidencias.push(valorArray);
+   } else {
+       diferencias.push(`${valorArray} (Excel: ${valorExcel || 'N/A'})`);
+   }*/
+
+
+  // mostrarResultados(coincidencias, diferencias);
+}
+
+
+function filterID(alumn, documento) {
+
+
+  return alumn.filter(array => array.id == documento);
+}
+
+function filterName(alumn, full_name) {
+
+  return alumn.filter(array => array.nombre_full.toLowerCase().includes(full_name.toLowerCase()));
+}
+function filterEmail(alumn, email) {
+
+
+  return alumn.filter(ary => {
+
+    return ary.Correo_personal == email.toLowerCase();
+
+  });
+}
+function filterUser(alumn, user) {
+
+
+  return alumn.filter(array => {
+    const regex = new RegExp(`\\b${user}\\b`, "i");
+    return regex.test(array.usuario);
+  });
+}
+
+let cuerpoTabla_coincidencias = document.getElementById("content_table_body_coincidencias");
+let cuerpoTabla_no_coincidencias = document.getElementById("content_table_body_no_coincidencias");
+
+
+function cargarRegistrosComparados(coincidencias, dato_ingresado, email_input, name_input) {
+
+
+  alertsMesseges.removeProcessing();
+  const errorBox = document.getElementById("errorBox");
+  validators.existsSelector(".show") && domHelpers.removeClass(errorBox, "show");
+
+  alertsMesseges.showExitBoxMessege();
+  document.querySelector(".active_table_coincidencias").removeAttribute("style");
+
+
+  console.log("coincidencias: " + coincidencias);
+  let rowspan = coincidencias.length;
+  let bandera = 0;
+  if (coincidencias.length > 0) {
+    coincidencias.map((data, index) => {
+      const fila = document.createElement("tr");
+      fila.setAttribute("key", index);
+      fila.setAttribute("class", "table_success");
+
+
+      if (bandera == 0) {
+
+      
+
+          fila.innerHTML = '<th scope="row" rowspan="' + rowspan + '">' + dato_ingresado + '</th>' +
+          '<td>' + data.year + '</td>' +
+          '<td>' + data.fecha + '</td>' +
+          '<td>' + data.programa + '</td>' +
+          '<td> ' + data.nombre_full + ' </td>' +
+          '<td> ' + data.id + ' </td>' +
+          '<td> <input  type="text" class="input-table input-user" value="' + data.usuario + '" readonly> </td>' +
+          '<td> <input  type="text" class="input-table" value="' + data.clave + '" readonly> </td>' +
+          '<td> ' + data.Correo_personal + ' </td>' +
+          '<td> ' + data.tanda + ' </td> <tr>';
+     
+         
+        bandera = 1;
+      } else {
+        fila.innerHTML =
+
+          '<td>' + data.year + '</td>' +
+          '<td>' + data.fecha + '</td>' +
+          '<td>' + data.programa + '</td>' +
+          '<td> ' + data.nombre_full + ' </td>' +
+          '<td> ' + data.id + ' </td>' +
+          '<td> <input  type="text" class="input-table input-user" value="' + data.usuario + '" readonly> </td>' +
+          '<td> <input  type="text" class="input-table" value="' + data.clave + '" readonly> </td>' +
+          '<td> ' + data.Correo_personal + ' </td>' +
+          '<td> ' + data.tanda + ' </td> <tr>';
+
+      }
+
+
+
+
+      cuerpoTabla_coincidencias.append(fila);
+
+
+    });
+
+  } else {
+
+    let index = 0;
+    const fila = document.createElement("tr");
+    fila.setAttribute("key", index++);
+
+    document.querySelector(".active_table_no_coincidencias").removeAttribute("style");
+
+    fila.setAttribute("class", "table_danger");
+
+if(!document.getElementById("user_check").checked){
+  fila.innerHTML =
+  '<th scope="row" >' + dato_ingresado + '</th>' +
+  '<td> ' + email_input + ' </td>' +
+  '<td> ' + name_input + ' </td>';
+
+}else{
+  fila.innerHTML =
+  '<th scope="row" >' + dato_ingresado + '</th>' ;
+
+}
+
+   
+
+
+
+
+    cuerpoTabla_no_coincidencias.append(fila);
+
+  }
+
+
+
+
+
+
+
+}
+
