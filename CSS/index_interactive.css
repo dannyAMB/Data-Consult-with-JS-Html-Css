@@ -1,3 +1,4 @@
+@import "https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css";
 /*Estilos de preload*/
 /*preload 1*/
 .lds-ellipsis {
@@ -281,9 +282,153 @@ display: block;
 
   .parpadeo {
     animation: parpadear 1s infinite;
+    
+}
+.parpadeo p{
+ color: #ffff;
+  
 }
 
 @keyframes parpadear {
     0%, 100% { opacity: 1; } /* Visible */
     50% { opacity: 0; } /* Invisible */
 }
+
+
+.content_input_file
+{
+ width: 100%;
+ display: flex;
+ justify-content: center;
+ margin: 20px 20px 20px 20px;
+}
+
+ .container_inpu_file {
+background-color: #fff;
+padding: 30px 40px;
+border-radius: 15px;
+box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+text-align: center;
+width: 350px;
+}
+
+.content_title_file h5 {
+margin-bottom: 20px;
+font-size: 18px;
+color: #333;
+}
+
+.custom-file-input {
+position: relative;
+display: inline-block; 
+cursor: pointer;
+}
+
+.custom-file-input input[type="file"] {
+opacity: 0;
+position: absolute;
+
+left: 0;
+top: 0;
+width: 100%;
+height: 100%;
+cursor: pointer;
+}
+
+.custom-file-label {
+display: inline-block;
+padding: 10px 20px;
+background-color: #007bff;
+border: 2px solid #007bff;
+color: #fff;
+border-radius: 10px;
+font-weight: bold;
+transition: background-color 0.3s ease, border-color 0.3s ease;
+cursor: pointer;
+}
+
+.custom-file-label i {
+margin-right: 8px;
+}
+
+.custom-file-label:hover {
+background-color: #0056b3;
+border-color: #0056b3;
+}
+
+#fileName {
+margin-top: 15px;
+font-size: 14px;
+color: #555;
+}
+input{
+ cursor: pointer;
+
+
+}
+
+ .container_all {
+     width: 100%;
+     display: flex;
+     justify-content: space-around;
+     margin-top: 20px;
+     flex-wrap: wrap;
+ }
+
+ .box {
+
+
+     width: 90%;
+     display: flex;
+     flex-wrap: wrap;
+     margin: 10px 0;
+     padding: 15px;
+     border-radius: 8px;
+     background-color: #fff;
+     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+ }
+
+ .container_content {
+
+
+     width: 100%;
+     padding: 10px;
+     border-radius: 20px;
+
+ }
+
+ .coincidencias {
+     background-color: #d4edda;
+     border: 1px solid #c3e6cb;
+     color: #155724;
+
+ }
+
+ .diferencias {
+     background-color: #f8d7da;
+     border: 1px solid #f5c6cb;
+     color: #721c24;
+
+ }
+
+
+ .table_success{
+     --bs-table-bg: none;
+     background-color: #dcfee4 !important;
+ }
+
+ .table_danger{
+   
+     --bs-table-bg: none;
+     background-color: #fca5a5 !important;
+ }
+
+ .box h3{
+
+  color: #333;
+ }
+
+ .desactive{
+
+  display: none !important;
+ }
