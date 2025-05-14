@@ -826,12 +826,13 @@ document.getElementById("fileInput").addEventListener("change", function (event)
     const sheetName = workbook.SheetNames[0];
     const sheet = workbook.Sheets[sheetName];
     const excelData = XLSX.utils.sheet_to_json(sheet, { header: 1 });
-    event.target.value = '';
+  event.target.value = '';
+   
+      
     try {
 
+compararDatos(excelData);
 
-
-      compararDatos(excelData);
 
 
 
@@ -848,81 +849,96 @@ document.getElementById("fileInput").addEventListener("change", function (event)
   };
   reader.readAsArrayBuffer(file);
 });
+
 function compararDatos(excelData) {
 
 
-  var aux_array_alumno = aux_array;
+  let aux_array_alumno = aux_array;
 
 
 
   cuerpoTabla_coincidencias.innerHTML = "";
   cuerpoTabla_no_coincidencias.innerHTML = "";
   const columnIndex = 0; // Comparar la columna "Nombre"
-  let coincidencias = [];
-  let no_coincidencias = [];
+  let coincidencias =[];
+ 
 
 console.log("aux_array_alumno: "+ aux_array_alumno.length )
-
-  excelData.forEach((fila, i) => {
-
-    //const valorArray = fila[columnIndex].id;
-    // const valorExcel = excelData[i + 1]?.[columnIndex] || "";
-    // console.log(valorExcel);
-
-    if (!aux_array_alumno || !aux_array_alumno.values || aux_array_alumno.length == 0) {
-
-      console.warn('se encontraron errores: "aux_array_alumno is undefined"');
-      alertsMesseges.removeProcessing();
-      throw new Error("The data API is undefined");
-
-    } else {
+console.log("excelData: "+ excelData )
 
 
-      if (!document.getElementById("user_check").checked) {
-
-        coincidencias = filterID(aux_array_alumno, fila[0]);
-
-        console.log("total primer filtro: " + coincidencias.length);
-
-        if (coincidencias.length == 0 && fila[1] != null && fila[2] != null && fila[3] != null && fila[4] != null) {
-          let full_name = (fila[1] + " " + fila[2] + " " + fila[3] + " " + fila[4]);
-          coincidencias = filterName(aux_array_alumno, full_name);
-
-          console.log("total segundo filtro: " + coincidencias.length);
-        }
-
-        console.log("fila[5]:" + fila[5])
-        if (coincidencias.length == 0 && fila[5] != null) {
-
-          coincidencias = filterEmail(aux_array_alumno, fila[5]);
-
-        }
-
-      } else {
+ excelData.forEach((fila,index) => {
 
 
-
-        coincidencias = filterUser(alumno, fila[0]);
-
-
-      }
-
-
-
-
+   if (!fila || !Array.isArray(fila) || fila.length === 0) {
+        console.warn(`Fila vacía o mal estructurada en el índice ${index}`);
+        return;
     }
 
+    // Verifica que la fila tenga al menos un dato en el primer índice
+    if (fila[0] === undefined) {
+        console.warn(`Fila sin ID en el índice ${index}:`, fila);
+        return;
+    }
+  const fila1 = fila[0];
+ 
+    console.log("Procesando fila[0]:", fila[0]);
+
+    // Verificación de datos base
+    if (!aux_array_alumno || !aux_array_alumno.values || aux_array_alumno.length === 0) {
+        console.warn('Se encontraron errores: "aux_array_alumno is undefined"');
+        alertsMesseges.removeProcessing();
+        throw new Error("The data API is undefined");
+    }
+
+    // Manejo de coincidencias
+    let coincidencias = [];
+    
+    // Verificación del checkbox
+   if (!document.getElementById("user_check").checked) {
+        
+        // Primer filtro: ID
+        coincidencias = filterID(aux_array_alumno, fila[0]);
+        console.log("Total primer filtro:", coincidencias.length);
+
+        // Segundo filtro: Nombre completo si no hay coincidencias por ID
+        if (coincidencias.length === 0) {
+            const full_name = [fila[1], fila[2], fila[3], fila[4]]
+                .filter(value => value != null)
+                .join(" ");
+            
+            if (full_name.trim().length > 0) {
+                coincidencias = filterName(aux_array_alumno, full_name);
+                console.log("Total segundo filtro:", coincidencias.length);
+            }
+        }
+
+        // Tercer filtro: Email si sigue sin coincidencias
+        if (coincidencias.length === 0 && fila[5] != null) {
+            coincidencias = filterEmail(aux_array_alumno, fila[5]);
+            console.log("Total tercer filtro (email):", coincidencias.length);
+        }
+
+} else {
+         console.log("Filter User (checkbox checked) - fila1: ", fila1);
+
+        // Filtro de usuario si el checkbox está marcado
+        coincidencias = filterUser(aux_array_alumno, fila[0]);
+
+     console.log("Total coincidencias (user check):", coincidencias.length);
+     }
+
+    // Mostrar resultados y cargar registros comparados
+    console.log("Resultado coincidencias:", coincidencias.length);
+    cargarRegistrosComparados(
+        coincidencias,
+        fila[0],
+        fila[1] ?? "N/E",
+        fila[2] ?? "N/E"
+    );
+});
 
 
-
-
-
-
-    console.log("resultado include:" + coincidencias.length);
-    cargarRegistrosComparados(coincidencias, fila[0], fila[1] != null ? fila[1] : "N/E", fila[2] != null ? fila[2] : "N/E");
-
-
-  });
 
   /* if (valorArray === valorExcel) {
        coincidencias.push(valorArray);
@@ -956,7 +972,7 @@ function filterEmail(alumn, email) {
 }
 function filterUser(alumn, user) {
 
-
+ console.log("entra a filterUser check user" + user);
   return alumn.filter(array => {
     const regex = new RegExp(`\\b${user}\\b`, "i");
     return regex.test(array.usuario);
@@ -978,19 +994,21 @@ function cargarRegistrosComparados(coincidencias, dato_ingresado, email_input, n
   document.querySelector(".active_table_coincidencias").removeAttribute("style");
 
 
-  console.log("coincidencias: " + coincidencias);
+  console.log("dato_ingresado: " + dato_ingresado);
+  console.log("coincidencias: " + coincidencias.length);
   let rowspan = coincidencias.length;
   let bandera = 0;
   if (coincidencias.length > 0) {
     coincidencias.map((data, index) => {
-      const fila = document.createElement("tr");
+      let fila = document.createElement("tr");
       fila.setAttribute("key", index);
       fila.setAttribute("class", "table_success");
 
-
       if (bandera == 0) {
 
-      
+       console.log("data.Correo_personal: " + data);
+
+       console.log("data.Correo_personal: " + dato_ingresado);
 
           fila.innerHTML = '<th scope="row" rowspan="' + rowspan + '">' + dato_ingresado + '</th>' +
           '<td>' + data.year + '</td>' +
@@ -1066,4 +1084,3 @@ if(!document.getElementById("user_check").checked){
 
 
 }
-
