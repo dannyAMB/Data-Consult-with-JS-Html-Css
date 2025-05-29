@@ -182,7 +182,7 @@ function print_data() {
 
     resultado = aux_array.filter(ema => {
       const regex = new RegExp(`\\b${respon}\\b`, "i");
-      return regex.test(ema.Correo_personal);
+      return regex.test(ema.usuario);
     });
 
 
@@ -202,7 +202,7 @@ function print_data() {
 
         resultado = aux_array.filter(user => {
           const regex = new RegExp(`\\b${respon}\\b`, "i");
-          return regex.test(user.usuario);
+          return regex.test(user.Correo_personal);
         });
       }
 
@@ -849,10 +849,12 @@ compararDatos(excelData);
   };
   reader.readAsArrayBuffer(file);
 });
-
+   let cont_false;
+   let cont_true;
 function compararDatos(excelData) {
 
-
+cont_false=0;
+cont_true=0;
   let aux_array_alumno = aux_array;
 
 
@@ -893,7 +895,7 @@ console.log("excelData: "+ excelData )
 
     // Manejo de coincidencias
     let coincidencias = [];
-    
+   
     // Verificación del checkbox
    if (!document.getElementById("user_check").checked) {
         
@@ -985,7 +987,6 @@ let cuerpoTabla_no_coincidencias = document.getElementById("content_table_body_n
 
 function cargarRegistrosComparados(coincidencias, dato_ingresado, email_input, name_input) {
 
-
   alertsMesseges.removeProcessing();
   const errorBox = document.getElementById("errorBox");
   validators.existsSelector(".show") && domHelpers.removeClass(errorBox, "show");
@@ -996,7 +997,10 @@ function cargarRegistrosComparados(coincidencias, dato_ingresado, email_input, n
 
   console.log("dato_ingresado: " + dato_ingresado);
   console.log("coincidencias: " + coincidencias.length);
+
   let rowspan = coincidencias.length;
+  cont_true = coincidencias.length + cont_true;
+  document.getElementById("cant_coincidencia_true").textContent = cont_true;
   let bandera = 0;
   if (coincidencias.length > 0) {
     coincidencias.map((data, index) => {
@@ -1040,7 +1044,6 @@ function cargarRegistrosComparados(coincidencias, dato_ingresado, email_input, n
 
 
 
-
       cuerpoTabla_coincidencias.append(fila);
 
 
@@ -1049,12 +1052,14 @@ function cargarRegistrosComparados(coincidencias, dato_ingresado, email_input, n
   } else {
 
     let index = 0;
+  
     const fila = document.createElement("tr");
     fila.setAttribute("key", index++);
 
     document.querySelector(".active_table_no_coincidencias").removeAttribute("style");
 
     fila.setAttribute("class", "table_danger");
+    document.getElementById("cant_coincidencia_false").textContent = ++cont_false	;
 
 if(!document.getElementById("user_check").checked){
   fila.innerHTML =

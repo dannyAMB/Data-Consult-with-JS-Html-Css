@@ -432,3 +432,72 @@ input{
 
   display: none !important;
  }
+
+ /*Marcador de resultados*/
+ #container_cont_result {
+        margin-top: 20px;
+        font-family: Arial, sans-serif;
+    }
+
+    .box_color {
+        width: 20px;
+        height: 20px;
+        display: inline-block;
+        border-radius: 4px;
+        margin-right: 8px;
+    }
+
+    .coincidencia_color {
+        background-color: #4CAF50; /* verde */
+    }
+
+    .no_coincidencia_color {
+        background-color: #F44336; /* rojo */
+    }
+
+    .resultado-contenedor {
+        display: flex;
+        gap: 20px;
+        justify-content: center;
+        align-items: center;
+        flex-wrap: nowrap;
+    }
+
+    .resultado-box {
+        background-color: #f9f9f9;
+        border: 1px solid #ddd;
+        padding: 15px 20px 10px 15px;
+        border-radius: 8px;
+        text-align: left;
+        box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        min-width: 250px;
+    }
+
+    .resultado-titulo {
+        font-weight: bold;
+        font-size: 16px;
+    }
+
+    .resultado-numero {
+        font-size: 24px;
+        font-weight: bold;
+        color: #333;
+        margin-top: 5px;
+        text-align: center;
+    }
+    #cant_coincidencia_false{
+
+      text-decoration: none;
+      color: #721c24;
+      font-size: 35px;
+    }
+    #cant_coincidencia_true{
+
+   
+      color: #22721c;
+      font-size: 35px;
+    }
+
+ /*Fin Marcador de resultados*/
+
+ 

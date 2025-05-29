@@ -1,93 +1,84 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Data consultant</title>
-        <meta charset="utf-8">
-        <link rel="stylesheet" href="CSS/CSS_iudigital_col_grid.css">
-        <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />-->
-        <link rel="stylesheet" href="CSS/style.css">
-        <link rel="stylesheet" href="CSS/index_interactive.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-        <link rel="stylesheet" href="CSS/bootstrap.min.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-        <link rel="stylesheet" href="CSS/alerts.css">
-    </head>
-    <body class="boby-container">
-        <!--Add buttons to initiate auth sequence and sign out-->
-        <header class="header_content">
-            <div class="content-login">
-                <div class="content-login-api_botom">
-                    <button id="authorize_button" class="btn btn-outline-danger">Get data</button>
-                    <button id="signout_button" class="btn btn-outline-danger">Sign-off</button>
-                </div>
+
+<head>
+    <title>Data consultant</title>
+    <meta charset="utf-8">
+    <link rel="stylesheet" href="CSS/CSS_iudigital_col_grid.css">
+    <!--<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous" />-->
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/index_interactive.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="CSS/alerts.css">
+</head>
+
+<body class="boby-container">
+    <!--Add buttons to initiate auth sequence and sign out-->
+    <header class="header_content">
+        <div class="content-login">
+            <div class="content-login-api_botom">
+                <button id="authorize_button" class="btn btn-outline-danger">Get data</button>
+                <button id="signout_button" class="btn btn-outline-danger">Sign-off</button>
             </div>
-        </header>
-        <main style="margin: 10px;">
-            <div class="merge_status">
-                <div id="errorBox" class="error-message">
-                    <button class="close-button" id="closeError">&times;</button>
-                    Something went wrong.
-                    <br>
-                    <span id="show_error"></span>
-                </div>
-                <div id="successBox" class="success-message">
-                    The process has been successful!
-                </div>
-                <div id="ProcessingBox" class="Processing-message">
-                    Processing data!
-                </div>
+        </div>
+    </header>
+    <main style="margin: 10px;">
+        <div class="merge_status">
+            <div id="errorBox" class="error-message">
+                <button class="close-button" id="closeError">&times;</button>
+                Something went wrong.
+                <br>
+                <span id="show_error"></span>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-12">
-                    <div class="logo_content">
-                        <div class="animation_box_title">
-                            Data consultant
-                        </div>
+            <div id="successBox" class="success-message">
+                The process has been successful!
+            </div>
+            <div id="ProcessingBox" class="Processing-message">
+                Processing data!
+            </div>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="logo_content">
+                    <div class="animation_box_title">
+                        Data consultant
                     </div>
                 </div>
             </div>
-            <div class="row justify-content-center">
-                <div class="col-12">
-                    <div class="mb-6">
-                        <form class="form_container">
-                            <div class="search_container">
-                                <label id="search_label" data-label="200">Buscar:</label>
-                                <input
-                                    type="text"
-                                    class="form-control"
-                                    name=""
-                                    id="text_value"
-                                    required
-                                >
-                                <!-- preload 1-->
-                                <div class="cortina" style="display: none;">
-                                    <div class="lds-spinner">
-                                        <div></div>
-                                        <div></div>
-                                        <div></div>
-                                        <div></div>
-                                        <div></div>
-                                        <div></div>
-                                        <div></div>
-                                        <div></div>
-                                        <div></div>
-                                        <div></div>
-                                        <div></div>
-                                        <div></div>
-                                    </div>
-                                    <div class="parpadeo">
-                                        <p>Processing info...</p>
-                                    </div>
-                                    <!--   <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
-                           <div class="lds-facebook"><div></div><div></div><div></div></div></div>-->
-                                    <button
-                                        type="submit"
-                                        disabled
-                                        hidden
-                                        aria-hidden="true"
-                                    ></button>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <div class="mb-6">
+                    <form class="form_container">
+                        <div class="search_container">
+                            <label id="search_label" data-label="200">Buscar:</label>
+                            <input type="text" class="form-control" name="" id="text_value" required>
+                            <!-- preload 1-->
+                            <div class="cortina" style="display: none;">
+                                <div class="lds-spinner">
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
+                                    <div></div>
                                 </div>
-                                <!--    <div class="check_content"> 
+                                <div class="parpadeo">
+                                    <p>Processing info...</p>
+                                </div>
+                                <!--   <div class="lds-ring"><div></div><div></div><div></div><div></div></div>
+                           <div class="lds-facebook"><div></div><div></div><div></div></div></div>-->
+                                <button type="submit" disabled hidden aria-hidden="true"></button>
+                            </div>
+                            <!--    <div class="check_content"> 
 
                       
                      <input type="radio" id="academica_check" name="data" > 
@@ -100,283 +91,288 @@
                     <label for="Profesores">Profesores</label>
                    
                   </div>-->
-                                <div class="checkbox-container">
-                                    <label class="switch">
-                                        <input type="radio" id="academica_check" name="data">
-                                        <span class="slider"></span>
-                                    </label>
-                                    <label for="Academica">
-                                        <strong>Academica</strong>
-                                    </label>
-                                    <label class="switch">
-                                        <input type="radio" id="extension_check" name="data">
-                                        <span class="slider"></span>
-                                    </label>
-                                    <label for="Extension">
-                                        <strong>Extensión</strong>
-                                    </label>
-                                    <label class="switch">
-                                        <input type="radio" id="profesores_check" name="data">
-                                        <span class="slider"></span>
-                                    </label>
-                                    <label for="Profesores">
-                                        <strong>Profesores</strong>
-                                    </label>
-                                </div>
-                                <section class="IUD_accordion">
-                                    <section class="IUD_accordion-content">
-                                        <article class="IUD_accordion-item">
-                                            <h5 class="IUD_accordion-item__label">Más opciones</h5>
-                                        </article>
-                                        <article class="IUD_accordion-item__container">
-                                            <div class="checkbox-container-advanced-options">
-                                                <label class="switch">
-                                                    <input type="checkbox" id="name_check" name="data_max">
-                                                    <span class="slider"></span>
-                                                </label>
-                                                <label for="Nombre">
-                                                    <strong>Buscar por nombre</strong>
-                                                </label>
-                                                <label class="switch">
-                                                    <input type="checkbox" id="id_detalle_check" name="data_max">
-                                                    <span class="slider"></span>
-                                                </label>
-                                                <label for="ID">
-                                                    <strong>ID Detallado</strong>
-                                                </label>
-                                            </div>
-                                            <div class="checkbox-container-advanced-options ">
-                                                <label class="switch">
-                                                    <input type="checkbox" id="fecha_check" name="data_max">
-                                                    <span class="slider"></span>
-                                                </label>
-                                                <label for="fecha" style="margin-right: 16px;">
-                                                    <strong>Filtrar por fecha</strong>
-                                                </label>
-                                                <label class="switch">
-                                                    <input type="checkbox" id="year_check" name="data_max">
-                                                    <span class="slider"></span>
-                                                </label>
-                                                <label for="Año_Add">
-                                                    <strong>Filtrar por año</strong>
-                                                </label>
-                                            </div>
-                                            <div class="checkbox-container-advanced-options">
-                                                <label class="switch">
-                                                    <input type="checkbox" id="year_add_check" name="year_add_check">
-                                                    <span class="slider year_add_check_slider"></span>
-                                                </label>
-                                                <label for="Año">
-                                                    <strong>Añadir año</strong>
-                                                </label>
-                                            </div>
-                                        </article>
-                                    </section>
-                                    <section class="IUD_accordion-content">
-                                        <article class="IUD_accordion-item" id="accordion_item_click">
-                                            <h5 class="IUD_accordion-item__label">Búsqueda masiva</h5>
-                                        </article>
-                                        <article class="IUD_accordion-item__container_two">
-                                            <div class="content_input_file">
-                                                <div class="container_inpu_file">
-                                                    <div class="content_title_file">
-                                                        <h5>Selecciona el archivo:</h5>
-                                                    </div>
-                                                    <label class="custom-file-input">
-                                                        <span class="custom-file-label">
-                                                            <i class="pointer fas fa-upload"></i>
-                                                            <input type="file" id="fileInput" accept=".xlsx">
-                                                            Elegir archivo
-                                                        </span>
-                                                    </label>
-                                                    <div id="fileName"></div>
-                                                </div>
-                                            </div>
-                                            <div class="checkbox-container">
-                                                <label class="switch">
-                                                    <input type="checkbox" id="user_check" name="User">
-                                                    <span class="slider"></span>
-                                                </label>
-                                                <label for="Academica">
-                                                    <strong>Validar User</strong>
-                                                </label>
-                                            </div>
-                                        </article>
-                                    </section>
+                            <div class="checkbox-container">
+                                <label class="switch">
+                                    <input type="radio" id="academica_check" name="data">
+                                    <span class="slider"></span>
+                                </label>
+                                <label for="Academica">
+                                    <strong>Academica</strong>
+                                </label>
+                                <label class="switch">
+                                    <input type="radio" id="extension_check" name="data">
+                                    <span class="slider"></span>
+                                </label>
+                                <label for="Extension">
+                                    <strong>Extensión</strong>
+                                </label>
+                                <label class="switch">
+                                    <input type="radio" id="profesores_check" name="data">
+                                    <span class="slider"></span>
+                                </label>
+                                <label for="Profesores">
+                                    <strong>Profesores</strong>
+                                </label>
+                            </div>
+                            <section class="IUD_accordion">
+                                <section class="IUD_accordion-content">
+                                    <article class="IUD_accordion-item">
+                                        <h5 class="IUD_accordion-item__label">Más opciones</h5>
+                                    </article>
+                                    <article class="IUD_accordion-item__container">
+                                        <div class="checkbox-container-advanced-options">
+                                            <label class="switch">
+                                                <input type="checkbox" id="name_check" name="data_max">
+                                                <span class="slider"></span>
+                                            </label>
+                                            <label for="Nombre">
+                                                <strong>Buscar por nombre</strong>
+                                            </label>
+                                            <label class="switch">
+                                                <input type="checkbox" id="id_detalle_check" name="data_max">
+                                                <span class="slider"></span>
+                                            </label>
+                                            <label for="ID">
+                                                <strong>ID Detallado</strong>
+                                            </label>
+                                        </div>
+                                        <div class="checkbox-container-advanced-options ">
+                                            <label class="switch">
+                                                <input type="checkbox" id="fecha_check" name="data_max">
+                                                <span class="slider"></span>
+                                            </label>
+                                            <label for="fecha" style="margin-right: 16px;">
+                                                <strong>Filtrar por fecha</strong>
+                                            </label>
+                                            <label class="switch">
+                                                <input type="checkbox" id="year_check" name="data_max">
+                                                <span class="slider"></span>
+                                            </label>
+                                            <label for="Año_Add">
+                                                <strong>Filtrar por año</strong>
+                                            </label>
+                                        </div>
+                                        <div class="checkbox-container-advanced-options">
+                                            <label class="switch">
+                                                <input type="checkbox" id="year_add_check" name="year_add_check">
+                                                <span class="slider year_add_check_slider"></span>
+                                            </label>
+                                            <label for="Año">
+                                                <strong>Añadir año</strong>
+                                            </label>
+                                        </div>
+                                    </article>
                                 </section>
-                            </form>
+                                <section class="IUD_accordion-content">
+                                    <article class="IUD_accordion-item" id="accordion_item_click">
+                                        <h5 class="IUD_accordion-item__label">Búsqueda masiva</h5>
+                                    </article>
+                                    <article class="IUD_accordion-item__container_two">
+                                        <div class="content_input_file">
+                                            <div class="container_inpu_file">
+                                                <div class="content_title_file">
+                                                    <h5>Selecciona el archivo:</h5>
+                                                </div>
+                                                <label class="custom-file-input">
+                                                    <span class="custom-file-label">
+                                                        <i class="pointer fas fa-upload"></i>
+                                                        <input type="file" id="fileInput" accept=".xlsx">
+                                                        Elegir archivo
+                                                    </span>
+                                                </label>
+                                                <div id="fileName"></div>
+                                            </div>
+                                        </div>
+                                        <div class="checkbox-container">
+                                            <label class="switch">
+                                                <input type="checkbox" id="user_check" name="User">
+                                                <span class="slider"></span>
+                                            </label>
+                                            <label for="Academica">
+                                                <strong>Validar User</strong>
+                                            </label>
+                                        </div>
+                                    </article>
+                                </section>
+                            </section>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="row" id="table_search">
+            <div class="col-12">
+                <div class="table-responsive">
+                    <table class="table table-hover table-bordered ">
+                        <thead class="table-dark">
+                            <tr id="header_academica">
+                                <th scope="col" style="background-color: brown;">#</th>
+                                <th id="year_table" style="display: none;" scope="col">Año</th>
+                                <th scope="col">Fecha</th>
+                                <th scope="col">Programa</th>
+                                <th scope="col">Nombre Full</th>
+                                <th scope="col">Documento</th>
+                                <th scope="col">Correo/Usuario Academica</th>
+                                <th scope="col">Clave</th>
+                                <th scope="col">CorreoPersonal</th>
+                                <th scope="col">Tanda</th>
+                            </tr>
+                            <tr id="header_extension">
+                                <th scope="col" style="background-color: brown;">#</th>
+                                <th id="year_table_ext" style="display: none;" scope="col">Año</th>
+                                <th scope="col">Fecha</th>
+                                <th scope="col">Programa</th>
+                                <th scope="col">Documento</th>
+                                <th scope="col">Nombre Full</th>
+                                <th scope="col">Correo/Usuario Extensión</th>
+                                <th scope="col">Clave</th>
+                                <th scope="col">CorreoPersonal</th>
+                            </tr>
+                            <tr id="header_profesores">
+                                <th scope="col" style="background-color: brown;">#</th>
+                                <th scope="col">Fecha</th>
+                                <th scope="col">Tipo</th>
+                                <th scope="col">Documento</th>
+                                <th scope="col">Nombre Full</th>
+                                <th scope="col">Correo/Usuario Profesor</th>
+                                <th scope="col">Clave</th>
+                                <th scope="col">CorreoPersonal</th>
+                                <th scope="col">merge_status</th>
+                            </tr>
+                        </thead>
+                        <tbody id="content_table_body"></tbody>
+                    </table>
+                </div>
+            </div>
+            <br>
+            <div id="text-dom"></div>
+        </div>
+        <div class="row desactive" id="table_search-masiv">
+            <div id="container_cont_result">
+                <div class="resultado-contenedor">
+                    <div class="resultado-box">
+                        <div class="resultado-titulo">
+                            <span class="box_color coincidencia_color"></span>
+                            Resultado coincidencias
                         </div>
+                        <div id="cant_coincidencia_true" class="resultado-numero">0</div>
+                    </div>
+                    <div class="resultado-box">
+                        <div class="resultado-titulo">
+                            <span class="box_color no_coincidencia_color"></span>
+                            Resultado no coincidencias
+                        </div>
+                        <div class="resultado-numero">
+                             <a href="#mi-seccion-nocoincidencias" class="btn-enlace" id="cant_coincidencia_false"  data-bs-toggle="tooltip" title="Click para ver los resultados" >   0</a>
+</div>
                     </div>
                 </div>
-                <div class="row" id="table_search">
-                    <div class="col-12">
-                        <div class="table-responsive">
-                            <table class="table table-hover table-bordered ">
-                                <thead class="table-dark">
-                                    <tr id="header_academica">
-                                        <th scope="col" style="background-color: brown;">#</th>
-                                        <th id="year_table" style="display: none;" scope="col">Año</th>
-                                        <th scope="col">Fecha</th>
-                                        <th scope="col">Programa</th>
-                                        <th scope="col">Nombre Full</th>
-                                        <th scope="col">Documento</th>
-                                        <th scope="col">Correo/Usuario Academica</th>
-                                        <th scope="col">Clave</th>
-                                        <th scope="col">CorreoPersonal</th>
-                                        <th scope="col">Tanda</th>
-                                    </tr>
-                                    <tr id="header_extension">
-                                        <th scope="col" style="background-color: brown;">#</th>
-                                        <th id="year_table_ext" style="display: none;" scope="col">Año</th>
-                                        <th scope="col">Fecha</th>
-                                        <th scope="col">Programa</th>
-                                        <th scope="col">Documento</th>
-                                        <th scope="col">Nombre Full</th>
-                                        <th scope="col">Correo/Usuario Extensión</th>
-                                        <th scope="col">Clave</th>
-                                        <th scope="col">CorreoPersonal</th>
-                                    </tr>
-                                    <tr id="header_profesores">
-                                        <th scope="col" style="background-color: brown;">#</th>
-                                        <th scope="col">Fecha</th>
-                                        <th scope="col">Tipo</th>
-                                        <th scope="col">Documento</th>
-                                        <th scope="col">Nombre Full</th>
-                                        <th scope="col">Correo/Usuario Profesor</th>
-                                        <th scope="col">Clave</th>
-                                        <th scope="col">CorreoPersonal</th>
-                                        <th scope="col">merge_status</th>
-                                    </tr>
-                                </thead>
-                                <tbody id="content_table_body"></tbody>
-                            </table>
-                        </div>
-                    </div>
-                    <br>
-                    <div id="text-dom"></div>
-                </div>
-                <div class="row desactive" id="table_search-masiv">
-                    <div id="container_cont_result" class="row">
-                        <div class="col-12">
+            </div>
+            <div class="col-12">
+                <div class="container_all">
+                    <div class="box ">
+                        <h3>Coincidencias</h3>
+                        <div class="coincidencias container_content">
                             <div class="row">
-                                <div class="col-6">
-                                    <div class="box_color coincidencia_color"></div>
-                                    <span>   Resultado coincidencias:</span>
-                                    <div id="cant_coincidencia"></div>
+                                <div class="col-12">
+                                    <div class="table-responsive" id="show_tabla">
+                                        <table class="table table-hover  active_table_coincidencias"
+                                            style="display: none;">
+                                            <thead class="table-light">
+                                                <tr id="header_ID">
+                                                    <th scope="col"> ID Ingresado</th>
+                                                    <th scope="col">Año</th>
+                                                    <th scope="col">fecha</th>
+                                                    <th scope="col">Programa</th>
+                                                    <th scope="col">Nombre Full</th>
+                                                    <th scope="col">Documento</th>
+                                                    <th scope="col">Correo/Usuario Academica</th>
+                                                    <th scope="col">Clave</th>
+                                                    <th scope="col">CorreoPersonal</th>
+                                                    <th scope="col">Tanda consolidado</th>
+                                                </tr>
+                                                <tr id="header_User" style="display: none">
+                                                    <th scope="col"> Usuario ingresado</th>
+                                                    <th scope="col">Año</th>
+                                                    <th scope="col">fecha</th>
+                                                    <th scope="col">Programa</th>
+                                                    <th scope="col">Nombre Full</th>
+                                                    <th scope="col">Documento</th>
+                                                    <th scope="col">Correo/Usuario Academica</th>
+                                                    <th scope="col">Clave</th>
+                                                    <th scope="col">CorreoPersonal</th>
+                                                    <th scope="col">Tanda consolidado</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="content_table_body_coincidencias"></tbody>
+                                        </table>
+                                    </div>
                                 </div>
-                                <div class="col-6">
-                                    <div class="box_color no_coincidencia_color"></div>
-                                    <span>   Resultado no coincidencias:</span>
-                                    <div id="cant_coincidencia"></div>
-                                </div>
+                                <br>
                             </div>
                         </div>
                     </div>
-                    <div class="col-12">
-                        <div class="container_all">
-                            <div class="box ">
-                                <h3>Coincidencias</h3>
-                                <div class="coincidencias container_content">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="table-responsive" id="show_tabla">
-                                                <table class="table table-hover  active_table_coincidencias" style="display: none;">
-                                                    <thead class="table-light">
-                                                        <tr id="header_ID">
-                                                            <th scope="col"> ID Ingresado</th>
-                                                            <th scope="col">Año</th>
-                                                            <th scope="col">fecha</th>
-                                                            <th scope="col">Programa</th>
-                                                            <th scope="col">Nombre Full</th>
-                                                            <th scope="col">Documento</th>
-                                                            <th scope="col">Correo/Usuario Academica</th>
-                                                            <th scope="col">Clave</th>
-                                                            <th scope="col">CorreoPersonal</th>
-                                                            <th scope="col">Tanda consolidado</th>
-                                                        </tr>
-                                                        <tr id="header_User" style="display: none">
-                                                            <th scope="col"> Usuario ingresado</th>
-                                                            <th scope="col">Año</th>
-                                                            <th scope="col">fecha</th>
-                                                            <th scope="col">Programa</th>
-                                                            <th scope="col">Nombre Full</th>
-                                                            <th scope="col">Documento</th>
-                                                            <th scope="col">Correo/Usuario Academica</th>
-                                                            <th scope="col">Clave</th>
-                                                            <th scope="col">CorreoPersonal</th>
-                                                            <th scope="col">Tanda consolidado</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody id="content_table_body_coincidencias"></tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                        <br>
+                    <div class="box">
+                        <h3>No Coincidencias</h3>
+                        <div class="diferencias container_content">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="table-responsive" id="show_tabla">
+                                        <table id="mi-seccion-nocoincidencias" class="table table-hover  active_table_no_coincidencias">
+                                            <thead class="table-light">
+                                                <tr id="header_no_ID">
+                                                    <th scope="col">ID ingresado</th>
+                                                    <th scope="col">Correo Personal</th>
+                                                    <th scope="col">Nombre FULL</th>
+                                                </tr>
+                                                <tr id="header_no_user" style="display: none;">
+                                                    <th scope="col">Usuario ingresado</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody id="content_table_body_no_coincidencias"></tbody>
+                                        </table>
                                     </div>
                                 </div>
-                            </div>
-                            <div class="box">
-                                <h3>No Coincidencias</h3>
-                                <div class="diferencias container_content">
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <div class="table-responsive" id="show_tabla">
-                                                <table class="table table-hover  active_table_no_coincidencias">
-                                                    <thead class="table-light">
-                                                        <tr id="header_no_ID">
-                                                            <th scope="col">ID ingresado</th>
-                                                            <th scope="col">Correo Personal</th>
-                                                            <th scope="col">Nombre FULL</th>
-                                                        </tr>
-                                                        <tr id="header_no_user" style="display: none;">
-                                                            <th scope="col">Usuario ingresado</th>
-                                                        </tr>
-                                                    </thead>
-                                                    <tbody id="content_table_body_no_coincidencias"></tbody>
-                                                </table>
-                                            </div>
-                                        </div>
-                                        <br>
-                                    </div>
-                                </div>
+                                <br>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="IUD_content_pagination">
-                    <div class="d-flex IUD_content_pagination_two">
-                        <nav aria-label="Page navigation example">
-                            <ul class="pagination">
-                                <li class="page-item position_left_botton_pagination">
-                                    <button class="page-link" onclick="previusPage()">
-                                        <span aria-hidden="true">&laquo;</span>
-                                    </button>
-                                </li>
-                                <div id="items" class="d-flex"></div>
-                                <li class="page-item position_right_botton_pagination">
-                                    <button class="page-link" onclick="nextPage()">
-                                        <span aria-hidden="true">&raquo;</span>
-                                    </button>
-                                </li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-                <!--generador clave - inicio-->
-                <div class="content-button-generate">
-                    <div class="v-align">
-                        <div class="hero-btn">
-                            <button class="btn" id="generator-button">
-                                <span>Generar clave</span>
-                                <!-- preload 1-->
-                                <div class="lds-ellipsis">
-                                    <div></div>
-                                    <div></div>
-                                    <div></div>
-                                    <div></div>
-                                </div>
+            </div>
+        </div>
+        <div class="IUD_content_pagination">
+            <div class="d-flex IUD_content_pagination_two">
+                <nav aria-label="Page navigation example">
+                    <ul class="pagination">
+                        <li class="page-item position_left_botton_pagination">
+                            <button class="page-link" onclick="previusPage()">
+                                <span aria-hidden="true">&laquo;</span>
                             </button>
-                            <!--     <span class='particles-circle'></span>
+                        </li>
+                        <div id="items" class="d-flex"></div>
+                        <li class="page-item position_right_botton_pagination">
+                            <button class="page-link" onclick="nextPage()">
+                                <span aria-hidden="true">&raquo;</span>
+                            </button>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+        <!--generador clave - inicio-->
+        <div class="content-button-generate">
+            <div class="v-align">
+                <div class="hero-btn">
+                    <button class="btn" id="generator-button">
+                        <span>Generar clave</span>
+                        <!-- preload 1-->
+                        <div class="lds-ellipsis">
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                            <div></div>
+                        </div>
+                    </button>
+                    <!--     <span class='particles-circle'></span>
         <span class='particles-circle'></span>
         <span class='particles-circle'></span>
         <span class='particles-circle'></span>
@@ -411,45 +407,32 @@
         <span class='particles-circle'></span>
         <span class='particles-circle'></span>
         <span class='particles-circle'></span>-->
-                        </div>
-                    </div>
-                    <div class="content_input_clipboard">
-                        <div class="copy-text">
-                            <!-- preload 2-->
-                            <!--<div class="lds-facebook"><div></div><div></div><div></div></div>-->
-                            <!-- preload 3-->
-                            <!--<div class="lds-ring"><div></div><div></div><div></div><div></div></div>-->
-                            <input
-                                type="text"
-                                class="text"
-                                id="clave-generate"
-                                value="clave"
-                                readonly
-                            >
-                            <button id="btn_copy">
-                                <i class="fa fa-clone" aria-hidden="true"></i>
-                            </button>
-                        </div>
-                    </div>
                 </div>
-                <!--generador clave - fin-->
-            </main>
-            <pre id="content" style="white-space: pre-wrap;"></pre>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-            <script type="module" src="script-js/index-interactive.js"></script>
-            <script type="module" src="script-js/conection-api-key.js"></script>
-            <script
-                async
-                defer
-                src="https://apis.google.com/js/api.js"
-                id="gapi"
-            ></script>
-            <script
-                async
-                defer
-                src="https://accounts.google.com/gsi/client"
-                id="gis"
-            ></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
-        </body>
-    </html>
+            </div>
+            <div class="content_input_clipboard">
+                <div class="copy-text">
+                    <!-- preload 2-->
+                    <!--<div class="lds-facebook"><div></div><div></div><div></div></div>-->
+                    <!-- preload 3-->
+                    <!--<div class="lds-ring"><div></div><div></div><div></div><div></div></div>-->
+                    <input type="text" class="text" id="clave-generate" value="clave" readonly>
+                    <button id="btn_copy">
+                        <i class="fa fa-clone" aria-hidden="true"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!--generador clave - fin-->
+    </main>
+    <pre id="content" style="white-space: pre-wrap;"></pre>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script type="module" src="script-js/index-interactive.js"></script>
+    <script type="module" src="script-js/conection-api-key.js"></script>
+    <script async defer src="https://apis.google.com/js/api.js" id="gapi"></script>
+    <script async defer src="https://accounts.google.com/gsi/client" id="gis"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.18.5/xlsx.full.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+</body>
+
+</html>

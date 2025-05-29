@@ -259,3 +259,13 @@ function close_Error(){
 }
 
 //fin alertas
+
+//activa el tooltip cuanto el navegador cargue
+  document.addEventListener('DOMContentLoaded', function () {
+    const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    tooltipTriggerList.forEach(function (tooltipTriggerEl) {
+      new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+  });
+  
+  //fin activa el tooltip cuanto el navegador cargue
