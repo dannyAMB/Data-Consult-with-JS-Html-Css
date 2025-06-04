@@ -1000,13 +1000,15 @@ function cargarRegistrosComparados(coincidencias, dato_ingresado, email_input, n
 
   let rowspan = coincidencias.length;
   cont_true = coincidencias.length + cont_true;
+
+  let cont_coincidencias = coincidencias.length;
   document.getElementById("cant_coincidencia_true").textContent = cont_true;
   let bandera = 0;
   if (coincidencias.length > 0) {
     coincidencias.map((data, index) => {
       let fila = document.createElement("tr");
       fila.setAttribute("key", index);
-      fila.setAttribute("class", "table_success");
+      (cont_coincidencias>1) ? fila.setAttribute("class", "table-warning"):fila.setAttribute("class", "table_success");
 
       if (bandera == 0) {
 
