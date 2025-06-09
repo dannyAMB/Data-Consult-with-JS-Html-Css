@@ -262,20 +262,41 @@
                             Resultado no coincidencias
                         </div>
                         <div class="resultado-numero">
-                             <a href="#mi-seccion-nocoincidencias" class="btn-enlace" id="cant_coincidencia_false"  data-bs-toggle="tooltip" title="Click para ver los resultados" >   0</a>
-</div>
+                            <a href="#mi-seccion-nocoincidencias" class="btn-enlace" id="cant_coincidencia_false"
+                                data-bs-toggle="tooltip" title="Click para ver los resultados"> 0</a>
+                        </div>
                     </div>
                 </div>
             </div>
             <div class="col-12">
                 <div class="container_all">
                     <div class="box ">
-                        <h3>Coincidencias</h3>
+                        <div class="headerBox">
+                            <div class="container_tittle">
+                                <h3>Coincidencias</h3>
+                            </div>
+
+                            <div class="container_filtro">
+
+                                <label class="label_filtro" for="filtroBusqueda"> filtro busqueda:</label>
+                                <select id="filtroBusqueda">
+                                   <option disabled selected>Selecione una opción</option>
+
+                                    <option value="unitario">Primero las unitarias</option>
+                                    <option value="multiple">Primero las múltiple</option>
+
+
+                                </select>
+                            </div>
+
+
+                        </div>
+
                         <div class="coincidencias container_content">
                             <div class="row">
                                 <div class="col-12">
                                     <div class="table-responsive" id="show_tabla">
-                                        <table class="table table-hover  active_table_coincidencias"
+                                        <table  id="table_coincidencias"  class="table table-hover  active_table_coincidencias"
                                             style="display: none;">
                                             <thead class="table-light">
                                                 <tr id="header_ID">
@@ -303,7 +324,10 @@
                                                     <th scope="col">Tanda consolidado</th>
                                                 </tr>
                                             </thead>
-                                            <tbody id="content_table_body_coincidencias"></tbody>
+                                            <tbody id="content_table_body_coincidencias">
+
+
+                                            </tbody>
                                         </table>
                                     </div>
                                 </div>
@@ -317,7 +341,8 @@
                             <div class="row">
                                 <div class="col-12">
                                     <div class="table-responsive" id="show_tabla">
-                                        <table id="mi-seccion-nocoincidencias" class="table table-hover  active_table_no_coincidencias">
+                                        <table id="mi-seccion-nocoincidencias"
+                                            class="table table-hover  active_table_no_coincidencias">
                                             <thead class="table-light">
                                                 <tr id="header_no_ID">
                                                     <th scope="col">ID ingresado</th>

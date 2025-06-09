@@ -416,6 +416,12 @@ input{
      --bs-table-bg: none;
      background-color: #dcfee4 !important;
  }
+.table-warning_dark{
+   --bs-table-bg: none;
+     background-color: #eddba1 !important;
+
+
+}
 
  .table_danger{
    
@@ -500,4 +506,42 @@ input{
 
  /*Fin Marcador de resultados*/
 
- 
+ /*Header box coincidencias*/
+
+ .headerBox{
+
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+
+justify-content: space-between; 
+
+
+ }
+
+
+ /*Fin Header box coincidencias*/
+ /*Filtro búsqueda*/
+
+   #filtroBusqueda {
+    padding: 8px 12px;
+    font-size: 16px;
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    background-color: #f9f9f9;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+    transition: border-color 0.3s, box-shadow 0.3s;
+  }
+
+  #filtroBusqueda:focus {
+    border-color: #007BFF;
+    outline: none;
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.5);
+  } 
+
+  .label_filtro {
+    font-weight: bold;
+    margin-right: 10px;
+  }
+  /*Fin Filtro búsqueda*/
+

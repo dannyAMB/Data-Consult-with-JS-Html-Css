@@ -269,3 +269,32 @@ function close_Error(){
   });
   
   //fin activa el tooltip cuanto el navegador cargue
+  //filtro ordenar//
+document.getElementById("filtroBusqueda").addEventListener("change",
+        ordenarPorClase
+    )
+    function ordenarPorClase() {
+      const rolPrioritario = document.getElementById('filtroBusqueda').value;
+      const tabla = document.getElementById('table_coincidencias');
+      const tbody = tabla.tBodies[0];
+      const filas = Array.from(tbody.rows);
+
+      // Ordenar las filas según la clase del <tr>
+      filas.sort((a, b) => {
+ const claseA = a.getAttribute("data-estado")?.toLowerCase() || "";
+ const claseB = b.getAttribute("data-estado")?.toLowerCase() || "";
+
+        if (claseA === rolPrioritario && claseB !== rolPrioritario) return -1;
+        if (claseA !== rolPrioritario && claseB === rolPrioritario) return 1;
+
+        // Si son iguales o ambos diferentes, ordenar alfabéticamente por nombre
+        return a.cells[0].innerText.localeCompare(b.cells[0].innerText);
+      });
+
+      // Reinsertar las filas ordenadas
+      tbody.innerHTML = '';
+      filas.forEach(fila => tbody.appendChild(fila));
+    }
+
+
+      //fin filtro ordenar//
