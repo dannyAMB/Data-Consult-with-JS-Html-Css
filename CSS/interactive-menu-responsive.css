@@ -1,0 +1,117 @@
+.btn_menu_neon {
+
+  font-size: 1.1rem;
+  font-weight: 600;
+  color:rgba(3, 233, 244);
+  background: none;
+  border: 3px solid rgba(3, 233, 244);
+  cursor: pointer;
+  overflow: hidden;
+  transition: all 0.4s ease;
+
+  z-index: 1001;
+}
+.btn_menu_neon span{
+  font-size: 1.6rem !important;
+
+}
+
+.neon-pulse {
+  
+  overflow: visible;
+}
+
+.neon-pulse::before,
+.neon-pulse::after {
+  content: "";
+  position: absolute;
+  inset: -4px;
+  border: 2px solid rgba(0, 207, 254, 0.971);
+  border-radius: inherit;
+  animation: pulseOut 2s ease-out infinite;
+  opacity: 0;
+}
+
+.neon-pulse::after {
+  animation-delay: 1s;
+}
+
+@keyframes pulseOut {
+  0% {
+    transform: scale(0.9);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.3);
+    opacity: 0;
+  }
+}
+    /* Estilo base para los botones neón */
+    .neon-btn {
+      display: inline-block;
+      margin: 8px 0;
+      padding: 10px 20px;
+      color: rgba(0, 207, 254, 0.971);
+      text-decoration: none;
+      font-weight: bold;
+      border: 2px solid rgba(0, 207, 254, 0.971);
+      border-radius: 4px;
+     /*   text-shadow:
+        0 0 4px #08afb8,
+        0 0 8px #03e9f4,
+        0 0 10px #0c959d;*/
+      box-shadow:
+        inset      0 0 4px rgba(0, 207, 254,0.9),
+        0 0 8px rgba(0, 207, 254,0.7),
+        0 0 16px rgba(0, 207, 254,0.5);
+      transition:
+        color 0.2s ease,
+        background-color 0.2s ease,
+        transform 0.2s ease,
+        box-shadow 0.2s ease;
+    }
+
+    /* Efecto hover/neón más intenso */
+    .neon-btn:hover {
+      color: #fff;
+      background-color: #03e9f4;
+      text-shadow:
+        0 0 6px #fff,
+        0 0 12px #fff;
+      box-shadow:
+        inset 0 0 6px rgba(255,255,255,0.7),
+        0 0 12px rgba(0, 207, 254,0.9),
+        0 0 24px rgba(0, 207, 254,0.7),
+        0 0 32px rgba(0, 207, 254,0.5);
+      transform: scale(1.05);
+    }
+    .container-menu ul {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+    .container-menu h2 {
+      margin-top: 0;
+      margin-bottom: 15px;
+      color: #03e9f4;
+      text-shadow: 0 0 4px #03e9f4;
+    }
+
+    /* Animación pulsante para el botón del menú */
+    .neon-pulse {
+      animation: pulseNeon 2s infinite alternate;
+    }
+
+    @keyframes pulseNeon {
+      from {
+        box-shadow:
+          0 0 4px rgba(0, 207, 254, 0.888),
+          0 0 8px rgba(0, 207, 254, 0.62);
+      }
+      to {
+        box-shadow:
+        0 0 12px rgba(0, 207, 254, 0.948),
+        0 0 24px rgba(0, 207, 254, 0.774),
+        0 0 35px rgba(0, 207, 254,0.5);
+      }
+    }
