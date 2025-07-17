@@ -554,3 +554,20 @@ justify-content: space-between;
 }
 
 /*fin item menu active*/
+/*boton enlace calendar AAA*/
+    .btn-link-calendar-AAA {
+      display: inline-block;
+      background-color: #007bff; /* Azul */
+      color: white;
+      padding: 10px 20px;
+      text-decoration: none;
+      border-radius: 5px;
+      font-weight: bold;
+      font-family: sans-serif;
+      transition: background-color 0.3s ease;
+    }
+    .btn-link-calendar-AAA:hover {
+      background-color: #0056b3;
+    }
+
+    /*fin boton enlace calendar AAA*/

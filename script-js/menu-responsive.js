@@ -68,6 +68,6 @@
     });
 
 
-         document.getElementById("btn_calendar").addEventListener("click", function() {
+      /*   document.getElementById("btn_calendar").addEventListener("click", function() {
     window.open("https://script-monitorias.web.app/", "_blank"); // "_blank" abre en nueva pestaña
-  });
+  });*/

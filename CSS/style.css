@@ -19,7 +19,12 @@
   padding: 0;
   box-sizing: border-box;
 }
+#iframe-calendar{
 
+
+  width: 1500px !important ;
+  height: 2000px !important ;
+}
 body{
  
   /* margin: 0; */
