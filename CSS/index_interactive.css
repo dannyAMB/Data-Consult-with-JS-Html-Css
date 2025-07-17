@@ -270,7 +270,7 @@ display: block;
   .cortina{
     display: flex;
     background: rgba(0, 0, 0, 0.691); /* Oscuro con transparencia */
-    z-index: 1000;
+    z-index: 10000;
     width: 10000px;
     height:  10000px;
     position: fixed;
@@ -531,6 +531,7 @@ justify-content: space-between;
     background-color: #f9f9f9;
     box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
     transition: border-color 0.3s, box-shadow 0.3s;
+    color: #000;
   }
 
   #filtroBusqueda:focus {
@@ -545,3 +546,11 @@ justify-content: space-between;
   }
   /*Fin Filtro búsqueda*/
 
+/*item menu active*/
+
+.content-item .desactive{
+
+  display: none;
+}
+
+/*fin item menu active*/

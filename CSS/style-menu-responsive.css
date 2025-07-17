@@ -1,14 +1,6 @@
-* {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
- }
 
-body {
-      font-family: Arial, sans-serif;
-      display: flex;
-      min-height: 100vh;
-    }
+
+
 
     .sidebar {
       width: 250px;
@@ -45,12 +37,12 @@ body {
     }
 
     .menu-btn {
-      position: fixed;
+      position: absolute;
       top: 20px;
       left: 20px;
       font-size: 30px;
       cursor: pointer;
-      z-index: 1001;
+      z-index: 999;
       color: white;
       padding: 8px 13px;
       border: none;

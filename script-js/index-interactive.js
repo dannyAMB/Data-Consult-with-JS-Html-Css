@@ -298,3 +298,6 @@ document.getElementById("filtroBusqueda").addEventListener("change",
 
 
       //fin filtro ordenar//
+
+
+   

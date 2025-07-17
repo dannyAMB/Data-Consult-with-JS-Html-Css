@@ -37,7 +37,37 @@
       }
     });
 
+    /*funcionalidad botones*/
+    const btnClose = document.getElementById('btn-close');
+    const tabButtons = document.querySelectorAll('.neon-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    menuBtn.addEventListener('click', () => {
+      sidebar.classList.add('active');
+      menuBtn.style.display = 'none';
+    });
+
+    btnClose.addEventListener('click', () => {
+      sidebar.classList.remove('active');
+      setTimeout(() => {
+        menuBtn.style.display = 'block';
+      }, 300);
+    });
+
+    // Mostrar contenido al hacer clic
+    tabButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const target = button.getAttribute('data-tab');
+
+        tabContents.forEach(content => {
+          content.classList.remove('active');
+        });
+
+        document.getElementById(target).classList.add('active');
+      });
+    });
 
 
-    sidebar.addEventListener("mouseleave", tryAutoClose);
-    menuBtn.addEventListener("mouseleave", tryAutoClose);
+         document.getElementById("btn_calendar").addEventListener("click", function() {
+    window.open("https://script-monitorias.web.app/", "_blank"); // "_blank" abre en nueva pestaña
+  });

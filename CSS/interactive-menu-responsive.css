@@ -115,3 +115,23 @@
         0 0 35px rgba(0, 207, 254,0.5);
       }
     }
+
+
+ /* Contenido principal */
+    .main-content {
+
+      flex: 1;
+      transition: margin-left 0.3s ease;
+    }
+
+    .sidebar.active ~ .main-content {
+      margin-left: 250px;
+    }
+
+    .tab-content {
+      display: none;
+    }
+
+    .tab-content.active {
+      display: block;
+    }
