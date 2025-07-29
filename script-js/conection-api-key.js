@@ -80,11 +80,22 @@ function gisLoaded() {
       tokenClient = google.accounts.oauth2.initTokenClient({
         client_id: CLIENT_ID,
         scope: SCOPES,
-        callback: '',
-
-        // defined later
+          callback: async (resp) => {
+          if (resp.error !== undefined) {
+            console.warn('Login silencioso falló:', resp.error);
+            document.getElementById('authorize_button').style.visibility = 'visible';
+            return;
+          }
+          await handleLoginSuccess();
+        }
       });
 
+      // Intentar login silencioso al cargar
+      tokenClient.requestAccessToken({ prompt: '' });
+
+      // Intentar login silencioso al cargar
+  
+ 
     }
 
   };
@@ -98,9 +109,11 @@ function gisLoaded() {
  */
 function maybeEnableButtons() {
   if (gapiInited && gisInited) {
+
     document.getElementById('authorize_button').style.visibility = 'visible';
   }
 }
+
 
 /**
  *  Sign in the user upon button click.
@@ -111,36 +124,69 @@ document.getElementById('authorize_button').addEventListener('click', () => {
     if (resp.error !== undefined) {
       throw (resp);
     }
-    document.getElementById('signout_button').style.visibility = 'visible';
-    document.getElementById('signout_button').style.display = 'block'
+  document.getElementById('signout_button').style.visibility = 'visible';
+  document.getElementById('signout_button').style.display = 'block';
+  document.getElementById('authorize_button').innerText = 'Refrescar';
 
-    document.getElementById('authorize_button').innerText = 'Refresh';
-    document.getElementById('text_value').placeholder = '';
-    document.querySelector('.cortina').removeAttribute("style");
-    document.getElementById('text_value').readOnly = true;
-    document.getElementById('text_value').value = '';
-    if( document.getElementById("errorBox").classList.contains("show")){
-      document.getElementById("errorBox").classList.remove("show");
+  document.getElementById('text_value').placeholder = '';
+  document.querySelector('.cortina')?.removeAttribute("style");
+  document.getElementById('text_value').readOnly = true;
+  document.getElementById('text_value').value = '';
 
-    }
+  document.getElementById("errorBox")?.classList.remove("show");
+
    
     await listMajors();
   };
 
-  if (gapi.client.getToken() === null) {
+      tokenClient.requestAccessToken({ prompt: '' });
+ // if (gapi.client.getToken() === null) {
     // Prompt the user to select a Google Account and ask for consent to share their data
     // when establishing a new session.
-    tokenClient.requestAccessToken({ prompt: 'consent' });
-  } else {
+    //tokenClient.requestAccessToken({ prompt: 'consent' });
+   //} else {
     // Skip display of account chooser and consent dialog for an existing session.
-    tokenClient.requestAccessToken({ prompt: '' });
-  }
+    // tokenClient.requestAccessToken({ prompt: '' });
+   //}
 
 
 })
+async function handleLoginSuccess() {
+  document.getElementById('signout_button').style.visibility = 'visible';
+  document.getElementById('signout_button').style.display = 'block';
+  document.getElementById('authorize_button').innerText = 'Refrescar';
 
+  document.getElementById('text_value').placeholder = '';
+  document.querySelector('.cortina')?.removeAttribute("style");
+  document.getElementById('text_value').readOnly = true;
+  document.getElementById('text_value').value = '';
 
-//function handleAuthClick()
+  document.getElementById("errorBox")?.classList.remove("show");
+
+  await listMajors();
+}
+
+/**
+ * Login manual si login silencioso falló
+ */
+document.getElementById('authorize_button').addEventListener('click', () => {
+  tokenClient.callback = async (resp) => {
+    if (resp.error !== undefined) {
+      throw (resp);
+    }
+    await handleLoginSuccess();
+  };
+// TOKEN DISCRETO.
+ tokenClient.requestAccessToken({ prompt: '' });
+ // if (gapi.client.getToken() === null) {
+    // Prompt the user to select a Google Account and ask for consent to share their data
+    // TOKEN CON AUTORIZACIÓN.
+    //tokenClient.requestAccessToken({ prompt: 'consent' });
+   //} else {
+    // Skip display of account chooser and consent dialog for an existing session.
+    // tokenClient.requestAccessToken({ prompt: '' });
+   });
+
 
 /**
  *  Sign out the user upon button click.
