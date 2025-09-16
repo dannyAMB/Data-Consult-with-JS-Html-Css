@@ -29,7 +29,7 @@ body{
  
   /* margin: 0; */
   background-image: url('../img/login.jpg') !important;
-  background-color: #202a3c;
+
   background-attachment: fixed;
   background-repeat: no-repeat;
   background-size : cover;
@@ -221,11 +221,8 @@ h2,h3,h4,h5,h6{
 }
 
 button{
-  background-color: var(--color-acento);
-  padding: 20px;
-  font-weight: bold ;
   border-radius: 20px !important;
-  border: unset;
+  
   cursor: pointer;
 }
 

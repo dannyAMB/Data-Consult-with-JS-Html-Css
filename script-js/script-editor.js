@@ -1,7 +1,6 @@
-
     const preview = document.getElementById('preview');
     const interfaz = document.getElementById('interfaz');
-    const htmlEditor = CodeMirror.fromTextArea(document.getElementById('htmlEditor'), {
+   var htmlEditor = CodeMirror.fromTextArea(document.getElementById('htmlEditor'), {
       mode: 'htmlmixed',
       theme: 'material-darker',
       lineNumbers: true,
@@ -13,10 +12,23 @@
       }
 
     });
-    htmlEditor.setSize("100%", "400px");
+    
+      htmlEditor.setSize("100%", "400px");
 
     const initialContent = '<h1>Hola, mundo</h1>\n<p>Edita este contenido en tiempo real</p>';
-    htmlEditor.setValue(initialContent);
+
+         console.log("entró text"+initialContent);
+      console.log("entró text");
+
+    document.getElementById("body_container").addEventListener("load",()=>{    
+      
+  htmlEditor.setValue(initialContent);
+         console.log("entró text");
+      updateIframe()
+
+})
+
+
 
     function updateIframe() {
       const iframeDoc = preview.contentDocument || preview.contentWindow.document;
@@ -38,7 +50,6 @@
         const formattedHTML = html_beautify(rawHTML, {
           indent_size: 2,
           wrap_line_length: 80,
-          preserve_newlines: true,
           max_preserve_newlines: 2
         });
 
@@ -162,7 +173,7 @@
       a.click();
     }
 
-    window.addEventListener('DOMContentLoaded', updateIframe);
+window.addEventListener('DOMContentLoaded', updateIframe);
 
 
 
